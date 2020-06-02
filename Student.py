@@ -6,9 +6,11 @@ from Matter import Matter
 
 # days = {"lunes": "hour"}
 
+
 class Student:
     def __init__(self):
         self.schedule = {}
+        self.matters = []
 
     def addMatter(self, matter: Matter):
         matterName = matter.name
@@ -23,13 +25,13 @@ class Student:
                     daysPass[day] = hour
                 else:
                     # si la materia tiene conflicto entonces eliminar todos las horas donde esta
-                    deleteAllScheduleMatter(daysPass)
+                    self.deleteAllScheduleMatter(daysPass)
                     return False
         # devuelve true si pudo inscribir la materia
+        self.matters.append(matterName)
         return True
 
-
-    def deleteAllScheduleMatter(self, daysPass: Dict):
+    def deleteAllScheduleMatter(self, daysPass: dict):
         for day in daysPass.keys():
             for hour in daysPass.get(day):
                 del self.schedule[day][hour]
