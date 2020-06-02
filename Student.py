@@ -8,9 +8,19 @@ from Matter import Matter
 
 
 class Student:
-    def __init__(self):
-        self.schedule = {}
-        self.matters = []
+    def __init__(self, _id: str, data: dict):
+        self.schedule = data.get("schedule")
+        self.matters = data.get("matters")
+        self.__name = data.get("name")
+        self.__id = _id
+        
+    @property
+    def name(self):
+        return self.name
+
+    @property
+    def Id(self):
+        return self.__id
 
     def addMatter(self, matter: Matter):
         matterName = matter.name

@@ -1,3 +1,11 @@
 {
-
+  "00001": {
+    "schedule": {
+      "Lunes": {
+        "1:00": "Almuerzo"
+      },
+      "name": "name",
+      "matters": []
+    }
+  }
 }

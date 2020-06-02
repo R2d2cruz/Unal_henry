@@ -1,3 +1,10 @@
 {
-
+  "0000": {
+    "days": {
+      "Lunes": ["2:00", "3:00"]
+    },
+    "numStudents": 0,
+    "maxStudents": 10,
+    "name": "quacimodo"
+  }
 }
