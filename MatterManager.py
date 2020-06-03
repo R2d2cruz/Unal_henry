@@ -68,6 +68,19 @@ class MatterManager:
         for matter in self.__reader.matters:
             self.__matters[matter] = Matter(matter, self.__reader.getMatterById(matter))
 
+    # crea una nueva materia
+    def createMatter(self, name: str, _id: str, value: int, owl: str, maxStu: int, days: dict = {}):
+        data = {
+            'days': days,
+            'numStudents': 0,
+            'maxStudents': maxStu,
+            'name': name,
+            'owl': owl,
+            'value': value
+        }
+        self.__matters[_id] = Matter(_id, data)
+        self.__reader.saveNewMatter(_id, data)
+
     # guarda los cambios de un estudiante
     def saveIndividualStudentById(self, student: str):
         self.__reader.updateStudentBuId(student, self.__students.get(student).data)

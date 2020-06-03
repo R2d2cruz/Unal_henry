@@ -34,6 +34,10 @@ class ReadDataBase:
     def matters(self):
         return self.__mattersData.keys()
 
+    # guarda una nueva materia
+    def saveNewMatter(self, _id: str, data: dict):
+        self.__mattersData[_id] = data
+
     # devuelve el dicionario de un estuiante por su id
     def getStudentById(self, _id: str):
         return self.__studentsData.get(_id)

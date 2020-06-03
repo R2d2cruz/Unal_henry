@@ -9,6 +9,7 @@
         "numStudents": 0,
         "maxStudents": 10,
         "name": "Cuasimodo",
-        "owl": "Guillermo de la Torre"
+        "owl": "Guillermo de la Torre",
+        "value": 3
     }
 }

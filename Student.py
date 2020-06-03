@@ -22,6 +22,7 @@ class Student:
         self.__name = data.get('name')
         self.__id = _id
         self.__wishesMatters = data.get('wishes')
+        self.__creditsUsed = data.get('credits')
 
     # devuelve el nombre del estudiante
     @property
@@ -45,7 +46,8 @@ class Student:
             'schedule': self.__schedule,
             'name': self.__name,
             'matters': self.__matters,
-            'wishes': self.__wishesMatters
+            'wishes': self.__wishesMatters,
+            'credits': self.__creditsUsed
         }
 
     def addMatter(self, matter: Matter):
@@ -62,10 +64,12 @@ class Student:
                 else:
                     # si la materia tiene conflicto entonces eliminar todos las horas donde esta
                     self.deleteAllScheduleMatter(daysPass)
+                    self.__wishesMatters[matter.Id]['isInscribe'] = 'y'
                     return False
         # devuelve true si pudo inscribir la materia
         self.__matters.append(matterName)
-        self.__wishesMatters.get(matter.Id)
+        self.__wishesMatters[matter.Id]['isInscribe'] = 'y'
+        self.__creditsUsed += matter.value
         return True
 
     def deleteAllScheduleMatter(self, daysPass: dict):

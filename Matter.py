@@ -17,6 +17,7 @@ class Matter:
         self.__maxStudents = data.get('maxStudents')
         self.__id = _id
         self.__owl = data.get('owl')
+        self.__value = data.get('value')
 
     @property
     def days(self):
@@ -33,6 +34,10 @@ class Matter:
     @property
     def name(self):
         return self.__name
+
+    @property
+    def value(self):
+        return self.__value
 
     def getHoursByDay(self, day: str):
         return self.__days.get(day)
