@@ -1,5 +1,5 @@
 
-from MatterManager import MatterManager
+from VisualInterface import VisualInterface
 
-matterManager = MatterManager()
-matterManager.update()
+visual = VisualInterface()
+visual.update()

@@ -1,11 +1,20 @@
 {
-  "00001": {
-    "schedule": {
-      "Lunes": {
-        "1:00": "Almuerzo"
-      },
-      "name": "name",
-      "matters": []
+    "00001": {
+        "schedule": {
+            "Lunes": {
+                "1:00": "Almuerzo"
+            },
+            "name": "name",
+            "matters": [],
+            "wishes": {
+                "00003": {
+                    "name": "Calculo Diferencial",
+                    "isInscribe": "P"
+                }
+            }
+        },
+        "name": null,
+        "matters": null,
+        "wishes": null
     }
-  }
 }

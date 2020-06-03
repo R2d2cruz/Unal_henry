@@ -1,26 +1,52 @@
 from Matter import Matter
 
-#n_estudiantes = 50
-#materias = {"materia1":35,"materia2":30, ...}
-#n_materias = len(materias)
 
-# days = {"lunes": "hour"}
+"""
+Student:
+        Create the student data in the program
+
+Authors:
+        Carlos Arturo Cruz Useche - 1001048369
+
+"""
+# anotense ahi ☝️
+
+
+# en wishes, 'p' es en progreso, 'n' es no se pudo inscribir y 'y' es si se pudo inscribir
 
 
 class Student:
     def __init__(self, _id: str, data: dict):
-        self.schedule = data.get("schedule")
-        self.matters = data.get("matters")
-        self.__name = data.get("name")
+        self.__schedule = data.get('schedule')
+        self.__matters = data.get('matters')
+        self.__name = data.get('name')
         self.__id = _id
+        self.__wishesMatters = data.get('wishes')
 
+    # devuelve el nombre del estudiante
     @property
     def name(self):
-        return self.name
+        return self.__name
 
+    # devuelve el id del estudiante
     @property
     def Id(self):
         return self.__id
+
+    # devuelve las materias que el estudiante desea inscribir
+    @property
+    def wishes(self):
+        return self.__wishesMatters.keys()
+
+    # devuelve un diccionario con la informacion del estudiante
+    @property
+    def data(self):
+        return {
+            'schedule': self.__schedule,
+            'name': self.__name,
+            'matters': self.__matters,
+            'wishes': self.__wishesMatters
+        }
 
     def addMatter(self, matter: Matter):
         matterName = matter.name
@@ -28,9 +54,9 @@ class Student:
         for day in matter.days:
             for hour in matter.getHoursByDay(day):
                 # se revisa cada hora de cada dia que tiene la materia
-                if self.schedule.get(day).get(hour) is None:
+                if self.__schedule.get(day).get(hour) is None:
                     # si no hay materias ahi, añada la materia
-                    self.schedule[day][hour] = matterName
+                    self.__schedule[day][hour] = matterName
                     # en caso de que por alguna razon no se pueda guarda los dias y horas que ha guardado esa materia
                     daysPass[day] = hour
                 else:
@@ -38,11 +64,12 @@ class Student:
                     self.deleteAllScheduleMatter(daysPass)
                     return False
         # devuelve true si pudo inscribir la materia
-        self.matters.append(matterName)
+        self.__matters.append(matterName)
+        self.__wishesMatters.get(matter.Id)
         return True
 
     def deleteAllScheduleMatter(self, daysPass: dict):
         for day in daysPass.keys():
             for hour in daysPass.get(day):
-                del self.schedule[day][hour]
+                del self.__schedule[day][hour]
                 # elimina las apariciones de la materia mencionada

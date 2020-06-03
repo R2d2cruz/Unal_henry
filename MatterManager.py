@@ -1,3 +1,14 @@
+"""
+MatterManager:
+        Control the process to create and inscribe the students in the subjects for the career
+
+Authors:
+        Carlos Arturo Cruz Useche - 1001048369
+
+"""
+# anotense ahi ☝️
+
+
 from Student import Student
 from Matter import Matter
 from ReadDataBase import ReadDataBase
@@ -5,25 +16,70 @@ from ReadDataBase import ReadDataBase
 
 class MatterManager:
     def __init__(self):
-        self.reader = ReadDataBase()
-        self.students = {}
-        self.matters = {}
+        self.__reader = ReadDataBase()
+        self.__students = {}
+        self.__matters = {}
         self.createStudents()
         self.createMatters()
 
+    @property
+    def students(self):
+        return self.__students.keys()
+
+    @property
+    def mattersCodes(self):
+        return self.__matters.keys()
+
+    @property
+    def nameMatters(self):
+        mattersName = []
+        for matter in self.__matters.keys():
+            mattersName.append(self.__matters.get(matter).name)
+        return mattersName
+
+    def studentById(self, _id: str):
+        return self.__students.get(_id)
+
+    # retorna la id de un estudiante
+    def studentByName(self, name: str):
+        students = []
+        for student in self.__students.keys():
+            if student.name == name:
+                students.append(students + ':\t\t' + student.Id)
+        return students
+
+    # crea un nuevo estudiante
+    def createStudent(self, name: str, _id: str, wishes: list = [], matters: list = [], schedule: dict = {}):
+        data = {
+            "schedule": schedule,
+            "name": name,
+            "matters": matters,
+            "wishes": wishes
+        }
+        self.__students[_id] = Student(_id, data)
+
     # crea el diccionario de estudiantes con los codigos como llaves
     def createStudents(self):
-        for student in self.reader.students:
-            self.students[student] = Student(student, self.reader.getStudentById(student))
+        for student in self.__reader.students:
+            self.__students[student] = Student(student, self.__reader.getStudentById(student))
 
     # crea el diccionario de materias con los codigos como llaves
     def createMatters(self):
-        for matter in self.reader.matters:
-            self.matters[matter] = Matter(self.reader.getMatterById(matter))
+        for matter in self.__reader.matters:
+            self.__matters[matter] = Matter(matter, self.__reader.getMatterById(matter))
 
-    def update(self):
-        pass
+    # guarda los cambios de un estudiante
+    def saveIndividualStudentById(self, student: str):
+        self.__reader.updateStudentBuId(student, self.__students.get(student).data)
 
-    # guarda los cambios
-    def save(self):
-        self.reader.packing()
+    # guarda el nuevo numero de estudiantes inscritos en una materia
+    def saveMatterNumStudents(self, matter: str):
+        self.__reader.updateMatterNumStudentsById(matter, self.__matters.get(matter).numStudents)
+
+    # guarda todos los cambios
+    def saveAll(self):
+        for student in self.__students.keys():
+            self.__reader.updateStudentBuId(student, self.__students.get(student).data)
+        for matter in self.__matters.keys():
+            self.__reader.updateMatterNumStudentsById(matter, self.__matters.get(matter).numStudents)
+        self.__reader.packing()
