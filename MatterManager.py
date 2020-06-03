@@ -37,6 +37,10 @@ class MatterManager:
             mattersName.append(self.__matters.get(matter).name)
         return mattersName
 
+    # aqui va el algoritmo de organizacion de orarion
+    def orgSchedule(self):
+        pass
+
     def studentById(self, _id: str):
         return self.__students.get(_id)
 

@@ -7,6 +7,7 @@ save = 'save'
 createStu = 'createStu'
 createMat = 'createMat'
 Help = 'help'
+orgSchedule = 'org'
 getHelp = {
     Exit: "It uses to close the program. All changes don't save will be deleted",
     printStu: 'If it is alone, it print all the students Id.\n\nTheir special combination commands are:\n\n\t'
@@ -18,7 +19,8 @@ getHelp = {
           + printStu + ' -e -s [studentId]\n\t\tIt save all changes for the student with the id [studentId].\n\n\t'
           + printStu + ' -e -m [subjectId]\n\t\tIt update the number of students in the subject with id [subjectId]',
     createStu: 'It create a new student',
-    createMat: 'It create and save a new subject'
+    createMat: 'It create and save a new subject',
+    orgSchedule: 'It organize automatic the students schedule'
 }
 
 
@@ -33,7 +35,8 @@ class VisualInterface:
             save: self.save,
             createStu: self.createStu,
             Help: self.help,
-            createMat: self.createMat
+            createMat: self.createMat,
+            orgSchedule: self.orgSchedule
         }
 
     @staticmethod
@@ -62,6 +65,9 @@ class VisualInterface:
             self.printingMessage(list(self.commands.keys()))
         elif len(instructions) == 2:
             print(getHelp.get(command[1]))
+
+    def orgSchedule(self, command):
+        self.matterManager.orgSchedule()
 
     def save(self, command):
         instructions = command.split(' ')
