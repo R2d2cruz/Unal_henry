@@ -13,7 +13,7 @@ class Student:
         self.matters = data.get("matters")
         self.__name = data.get("name")
         self.__id = _id
-        
+
     @property
     def name(self):
         return self.name

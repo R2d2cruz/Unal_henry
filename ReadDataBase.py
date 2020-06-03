@@ -8,8 +8,10 @@ class ReadDataBase:
         self.__mattersFileLoc = self.__directory + matters
         with open(self.__studentsFileLoc, "r") as studentsFile:
             self.__studentsData = json.load(studentsFile)
+            studentsFile.close()
         with open(self.__mattersFileLoc, "r") as mattersFile:
             self.__mattersData = json.load(mattersFile)
+            mattersFile.close()
 
     # devuelve la lista de id´s de los estudiantes
     @property
@@ -25,6 +27,10 @@ class ReadDataBase:
     def getStudentById(self, _id: str):
         return self.__studentsData.get(_id)
 
+    # devuelve el dicionario de una materia por su codigo(id)
+    def getMatterById(self, _id: str):
+        return self.__mattersData.get(_id)
+
     # actualiza a un estudiante por su id
     def updateStudentBuId(self, _id: str, data: dict):
         self.__studentsData[_id] = data
@@ -36,3 +42,11 @@ class ReadDataBase:
     # actualiza el numero de cupos
     def updateMatterMaxStudentsById(self, _id: int, maxStudents: int):
         self.__mattersData[_id]["maxStudents"] = maxStudents
+
+    def packing(self):
+        with open(self.__studentsFileLoc, "w") as studentFile:
+            json.dump(self.__studentsData, studentFile, indent=4)
+            studentFile.close()
+        with open(self.__mattersFileLoc, "w") as mattersFile:
+            json.dump(self.__mattersData, mattersFile, indent=4)
+            mattersFile.close()
