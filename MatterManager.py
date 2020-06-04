@@ -4,6 +4,8 @@ MatterManager:
 
 Authors:
         Carlos Arturo Cruz Useche - 1001048369
+        Diego Alejandro Campos Méndez - 1005753729
+
 
 """
 # anotense ahi ☝️
