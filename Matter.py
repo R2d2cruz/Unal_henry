@@ -40,14 +40,17 @@ class Matter:
     def value(self):
         return self.__value
 
+    # Devuelve la intesidad horaria por dia
     def getHoursByDay(self, day: str):
         return self.__days.get(day)
 
+    # Añadir estudiante al curso
     def addStudent(self):
         if self.__numStudents < self.__maxStudents:
             self.__numStudents += 1
             return True
         return False
 
+    # añadir sobrecupos a la materia
     def overCoop(self, overCoops: int = 1):
         self.__maxStudents += overCoops

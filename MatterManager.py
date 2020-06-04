@@ -39,7 +39,7 @@ class MatterManager:
             mattersName.append(self.__matters.get(matter).name)
         return mattersName
 
-    # aqui va el algoritmo de organizacion de orarion
+    # aqui va el algoritmo de organizacion de horario
     def orgSchedule(self):
         pass
 
