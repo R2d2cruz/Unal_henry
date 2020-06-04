@@ -66,7 +66,7 @@ class Student:
                 else:
                     # si la materia tiene conflicto entonces eliminar todos las horas donde esta
                     self.deleteAllScheduleMatter(daysPass)
-                    self.__wishesMatters[matter.Id]['isInscribe'] = 'y'
+                    self.__wishesMatters[matter.Id]['isInscribe'] = 'n'
                     return False
         # devuelve true si pudo inscribir la materia
         self.__matters.append(matterName)
