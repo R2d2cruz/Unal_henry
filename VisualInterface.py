@@ -73,7 +73,8 @@ class VisualInterface:
             print("Commands:")
             self.printingMessage(list(self.commands.keys()))
         elif len(instructions) == 2:
-            print(getHelp.get(command[1]))
+            print(instructions[1])
+            print(getHelp.get(instructions[1]))
 
     def orgSchedule(self, command):
         self.matterManager.orgSchedule()
