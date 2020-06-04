@@ -1,3 +1,12 @@
+"""
+VisualInterface:
+        Give control by terminal for the user
+
+Authors:
+        Carlos Arturo Cruz Useche - 1001048369
+
+"""
+
 from MatterManager import MatterManager
 
 Exit = 'exit'
