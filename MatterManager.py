@@ -34,7 +34,7 @@ class MatterManager:
         return self.__matters.keys()
 
     @property
-    def nameMatters(self):
+    def nameMatters(self) -> list:
         mattersName = []
         for matter in self.__matters.keys():
             mattersName.append(self.__matters.get(matter).name)
@@ -44,15 +44,17 @@ class MatterManager:
     def orgSchedule(self):
         pass
 
-    def studentById(self, _id: str):
+    def studentById(self, _id: str) -> Student:
         return self.__students.get(_id)
 
     # retorna la id de un estudiante
-    def studentByName(self, name: str):
+    def studentByName(self, name: str) -> list:
         students = []
-        for student in self.__students.keys():
-            if student.name == name:
-                students.append(students + ':\t\t' + student.Id)
+        for studentKey in self.__students.keys():
+            student = self.__students.get(studentKey)
+            studentName = student.name
+            if studentName == name:
+                students.append(student)
         return students
 
     # crea un nuevo estudiante

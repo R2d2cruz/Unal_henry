@@ -27,19 +27,22 @@ class Student:
         self.__wishesMatters = data.get('wishes')
         self.__creditsUsed = data.get('credits')
 
+    def __str__(self):
+        return 'Id: ' + self.Id + '\nName: ' + self.name + '\nSchedule: ' + self.schedule
+
     # devuelve el nombre del estudiante
     @property
-    def name(self):
+    def name(self) -> str:
         return self.__name
 
     # devuelve el id del estudiante
     @property
-    def Id(self):
+    def Id(self) -> str:
         return self.__id
 
     # devuelve las materias que el estudiante desea inscribir
     @property
-    def wishes(self):
+    def wishes(self) -> list:
         return self.__wishesMatters.keys()
 
     # devuelve un diccionario con la informacion del estudiante
@@ -53,7 +56,17 @@ class Student:
             'credits': self.__creditsUsed
         }
 
-    def addMatter(self, matter: Matter):
+    @property
+    def schedule(self) -> str:
+        schedule = ''
+        for day in self.__schedule.keys():
+            schedule += day
+            for hour in self.__schedule.get(day):
+                schedule += '\t' + hour
+            schedule += '\n'
+        return schedule
+
+    def addMatter(self, matter: Matter) -> bool:
         matterName = matter.name
         daysPass = {}
         for day in matter.days:
