@@ -73,6 +73,7 @@ class VisualInterface:
                 print(e)
                 print('invalid command')
                 print('Write help to see the command')
+            print('\n\n')
         print('GoodBye 🍺🍺🍺')
 
     def help(self, command):
