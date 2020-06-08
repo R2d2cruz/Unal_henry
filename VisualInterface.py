@@ -20,6 +20,7 @@ createStu = 'createStu'
 createMat = 'createMat'
 Help = 'help'
 orgSchedule = 'org'
+Schedule = 'schedule'
 getHelp = {
     Exit: "It uses to close the program. All changes don't save will be deleted",
     printStu: 'If it is alone, it print all the students Id.\n\nTheir special combination commands are:\n\n\t'
@@ -32,7 +33,10 @@ getHelp = {
           + printStu + ' -e -m [subjectId]\n\t\tIt update the number of students in the subject with id [subjectId]',
     createStu: 'It create a new student',
     createMat: 'It create and save a new subject',
-    orgSchedule: 'It organize automatic the students schedule'
+    orgSchedule: 'It organize automatic the students schedule',
+    Schedule: 'It print the schedule.\n\nTheir commands are:\n\n\t' + Schedule +
+              ' -i [studentId]\n\t\tIt print the schedule for the student with id [studentsId].\n\n\t' + Schedule +
+              ' -n [studentName]\n\t\tIt print the schedules for each student with name [studentName].'
 }
 
 
@@ -48,7 +52,8 @@ class VisualInterface:
             createStu: self.createStu,
             Help: self.help,
             createMat: self.createMat,
-            orgSchedule: self.orgSchedule
+            orgSchedule: self.orgSchedule,
+            Schedule: self.schedule
         }
 
     @staticmethod
@@ -82,6 +87,20 @@ class VisualInterface:
     def orgSchedule(self, command):
         self.matterManager.orgSchedule()
 
+    def schedule(self, command):
+        instructions = command.split(' ')
+        if len(instructions) == 3:
+            if instructions[1] == '-i':
+                student = self.matterManager.studentById(instructions[2])
+                if student is not None:
+                    print(student.schedule)
+            elif instructions[1] == '-n':
+                students = self.matterManager.studentByName(instructions[2])
+                for student in students:
+                    print(student.name + ':\n' + student.schedule)
+        else:
+            print('Error. Write ' + Schedule + ' [command] for read the documentation for a specific command')
+
     def save(self, command):
         instructions = command.split(' ')
         if len(instructions) == 1:
@@ -114,9 +133,11 @@ class VisualInterface:
             self.printingMessage(self.matterManager.students)
         elif '-e' in instructions:
             if '-n' in instructions:
-                self.printingMessage(self.matterManager.studentByName(instructions[instructions.index('-n') + 1]))
+                students = self.matterManager.studentByName(instructions[instructions.index('-n') + 1])
+                for student in students:
+                    print(student.name + ':\t\t' + student.Id)
             elif '-i' in instructions:
-                self.printingMessage(self.matterManager.studentById(instructions[instructions.index('-i') + 1]))
+                print(self.matterManager.studentById(instructions[instructions.index('-i') + 1]))
         else:
             print('Error. Write ' + Help + ' [command] for read the documentation for a specific command')
 
