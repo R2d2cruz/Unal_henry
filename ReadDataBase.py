@@ -6,7 +6,7 @@ Authors:
         Carlos Arturo Cruz Useche - 1001048369
         Diego Alejandro Campos Méndez - 1005753729
         Karen Fonseca Sánchez - 1020825523
-
+        Henry Salomón Suárez López - 1030595912
 
 """
 # anotense ahi ☝️
