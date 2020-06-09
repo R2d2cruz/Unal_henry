@@ -14,8 +14,8 @@
             }
         },
         "name": "Andres",
-        "matters": null,
-        "wishes": null,
+        "matters": [],
+        "wishes": [],
         "credits": 0
     }
 }
