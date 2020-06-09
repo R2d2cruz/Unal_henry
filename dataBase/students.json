@@ -5,17 +5,16 @@
                 "1:00": "Almuerzo"
             },
             "name": "name",
-            "matters": [],
-            "wishes": {
-                "00003": {
-                    "name": "Calculo Diferencial",
-                    "isInscribe": "P"
-                }
-            }
+            "matters": []
         },
         "name": "Andres",
         "matters": [],
-        "wishes": [],
+        "wishes": {
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "P"
+            }
+        },
         "credits": 0
     }
 }
