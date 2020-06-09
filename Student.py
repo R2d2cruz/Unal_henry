@@ -13,8 +13,6 @@ Authors:
 
 
 """
-# anotense ahi ☝️
-
 
 # en wishes, 'p' es en progreso, 'n' es no se pudo inscribir y 'y' es si se pudo inscribir
 

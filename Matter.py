@@ -8,8 +8,6 @@ Authors:
         Karen Fonseca Sánchez - 1020825523
         Henry Salomón Suárez López - 1030595912
 """
-# anotense ahi ☝️
-
 
 class Matter:
     def __init__(self, _id: str, data: dict):

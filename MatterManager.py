@@ -9,8 +9,6 @@ Authors:
         Henry Salomón Suárez López - 1030595912
 
 """
-# anotense ahi ☝️
-
 
 from Student import Student
 from Matter import Matter
