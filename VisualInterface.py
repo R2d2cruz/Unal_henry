@@ -146,6 +146,17 @@ class VisualInterface:
     def createStu(self, command):
         name = str(input('Ingrese nombre del estudiante:\n>>>'))
         _id = str(input('Ingrese ID del estudiante:\n>>>'))
+        papi = int(input("Ingrese papi del estudiante"))
+        wishesMatters = {}
+        while True:
+            wish_id = str(input("Ingrese el codigo de las materias que desea inscribir el estudiante"))
+            if wish_id in self.matterManager.mattersCodes:
+                wishesMatters[wish_id] = "p"
+                return ("Materia agregada, si ya terminó escriba out")
+            elif wish_id == "out":
+                break
+            else:
+                return ("El codigo ingresado es incorrecto")
         self.matterManager.createStudent(name, _id)
 
     # crea una nueva materia desde la terminal
