@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 WindowManager:
     MainWindow:
     OptionsWindow:
@@ -297,3 +298,96 @@ WindowManager:
         on_release:
             app.root.current = "Options"
             root.manager.transition.direction = 'left'
+=======
+<MyGrid>
+
+    days: days
+    name: name
+    numbstud: numbstud
+    maxstud: maxstud
+    mattcode: mattcode
+    owl: owl
+    credits: credits
+    slack: slack
+
+
+
+    GridLayout:
+        cols:1
+        size: root.width - 100, root.height - 100
+        pos: 50, 50
+
+
+        GridLayout:
+            cols:1
+
+            Label:
+                text: "Dias de clase"
+
+            TextInput:
+                id: days
+                multiline: False
+
+            Label:
+                text: "Nombre de la materia"
+
+            TextInput:
+                id: name
+                multiline: False
+
+            Label:
+                text: "Número de estudiantes"
+
+            TextInput:
+                id: numbstud
+                multiline: False
+
+            Label:
+                text: "Número máximo de estudiantes"
+
+            TextInput:
+                id: maxstud
+                multiline: False
+
+            Label:
+                text: "Código de la materia"
+
+            TextInput:
+                id: mattcode
+                multiline: False
+
+            Label:
+                text: "Profesor"
+
+            TextInput:
+                id: owl
+                multiline: False
+
+            Label:
+                text: "Valor en créditos"
+
+            TextInput:
+                id: credits
+                multiline: False
+
+            Label:
+                text: "Holgura en sobrecupos"
+
+            TextInput:
+                id: slack
+                multiline: False
+
+        Button:
+            id: ChrgMatter
+            size_hint: 0.3, 0.5
+            text:"Aceptar" if NewMatter.state == "normal" else "¡Listo!"
+            on_press: root.ChrgMatter()
+            background_color: 0.0,1.0,0.00,1
+
+        Button:
+            id: NewMatter
+            size_hint: 0.3, 0.5
+            text:"Nueva Materia" if NewMatter.state == "normal" else "¡Listo!"
+            on_press: root.NewMatter()
+            background_color: 1.0,0.0,0.00,1
+>>>>>>> Interfaz gráfica
