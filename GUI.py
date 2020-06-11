@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from kivy.app import App
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -74,6 +75,8 @@ class GUI(App):
 =======
 =======
 >>>>>>> Interfaz gráfica
+=======
+>>>>>>> Interfaz gráfica
 import kivy
 from kivy.app import App
 from kivy.lang import Builder
@@ -87,8 +90,11 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # install kivy-deps.glew kivy-deps.sdl2
 
+=======
+>>>>>>> Interfaz gráfica
 =======
 >>>>>>> Interfaz gráfica
 class MyGrid(Widget):
@@ -120,14 +126,20 @@ class GUI(App):
     def build(self):
         return MyGrid()
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Interfaz gráfica
 
 
 # if __name__ == "__main__":
 #     GUI().run()
 =======
+=======
+>>>>>>> Interfaz gráfica
 
 
 if __name__ == "__main__":
     GUI().run()
+<<<<<<< HEAD
+>>>>>>> Interfaz gráfica
+=======
 >>>>>>> Interfaz gráfica
