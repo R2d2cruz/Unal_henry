@@ -25,7 +25,7 @@ class Student:
         self.__id = _id
         self.__wishesMatters = data.get('wishes')
         self.__creditsUsed = data.get('credits')
-        self.__papi = data.get('papi')
+        self.__papi = data.get('PAPI')
 
     def __str__(self):
         return 'Id: ' + self.Id + '\nName: ' + self.name + '\nSchedule: ' + self.schedule
