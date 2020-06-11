@@ -146,7 +146,16 @@ class VisualInterface:
     def createStu(self, command):
         name = str(input('Ingrese nombre del estudiante:\n>>>'))
         _id = str(input('Ingrese ID del estudiante:\n>>>'))
-        self.matterManager.createStudent(name, _id)
+        papi = float(input("Ingrese P.A.P.I del estudiante:\n>>>"))
+        wishesMatters = []
+        n = int(input('Ingrese numero de materias deseadas:\n>>>'))
+        for i in range(n):
+            wish_id = str(input('Ingrese el codigo de las materias que desea inscribir el estudiante:\n>>>'))
+            if wish_id in self.matterManager.mattersCodes:
+                wishesMatters.append(wish_id)
+            else:
+                print('El codigo ingresado es incorrecto')
+        self.matterManager.createStudent(name, _id, papi, wishesMatters=wishesMatters)
 
     # crea una nueva materia desde la terminal
     def createMat(self, command):
