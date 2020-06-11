@@ -19,7 +19,6 @@ class MatterManager:
     def __init__(self):
         self.__reader = ReadDataBase()
         self.__students = {}
-        self.__sortedstudents = {}
         self.__matters = {}
         self.createStudents()
         self.createMatters()
@@ -41,17 +40,13 @@ class MatterManager:
 
     # aqui va el algoritmo de organizacion de horario
     def orgSchedule(self):
-        #for i in arange(5, 3, -0.01):
-         #   for student in self.students:
-          #      if student.papi == i:
-           #         self.__sortedstudents[student] = Student(student, self.__reader.getStudentById(student))
-            
         for student in self.students:
             for matter in self.__students.get(student).wishes:
-                self.__students.get(student).addMatter(self.__matters.get(matter))
-                    
-                #else:
-                #    return("la materia no tiene cupos suficientes")
+                if self.__students.get(student).addMatter(matter):
+                    self.__students.get(student).addMatter(matter)
+                else:
+                    return("la materia", matter.name,"no tiene cupos suficientes")
+        pass
 
     def studentById(self, _id: str) -> Student:
         return self.__students.get(_id)
@@ -70,7 +65,11 @@ class MatterManager:
     def createStudent(self, name: str, _id: str, papi: float, house: str, value: int = 0,wishesMatters: list = [], matters: list = [], schedule: dict = {}):
         wishes = {}
         for matter in wishesMatters:
-            wishes[matter] = 'p'
+            matterName = self.__matters.get(matter).name
+            wishes[matter] = {
+                'name': matterName,
+                'isInscribe': 'p'
+            }
         data = {
             'schedule': schedule,
             'name': name,
