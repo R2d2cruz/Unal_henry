@@ -40,6 +40,12 @@ class MatterManager:
 
     # aqui va el algoritmo de organizacion de horario
     def orgSchedule(self):
+        for student in self.students:
+            for matter in self.__students.get(student).wishes:
+                if self.__students.get(student).addMatter(matter):
+                    self.__students.get(student).addMatter(matter)
+                else:
+                    return("la materia", matter.name,"no tiene cupos suficientes")
         pass
 
     def studentById(self, _id: str) -> Student:
