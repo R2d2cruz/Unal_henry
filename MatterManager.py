@@ -84,24 +84,13 @@ class MatterManager:
         return students
 
     # crea un nuevo estudiante
-    def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool, value: int = 0,
-                      wishesMatters: list = [], matters: list = [], schedule: dict = {}):
-        wishes = {}
-        for matter in wishesMatters:
-            matterName = self.__matters.get(matter).name
-            wishes[matter] = {
-                'name': matterName,
-                'isInscribe': 'p'
-            }
+    def createStudent(self, name: str, _id: str, value: int = 0, wishes: list = [], matters: list = [], schedule: dict = {}):
         data = {
-            'schedule': schedule,
-            'name': name,
-            'matters': matters,
-            'wishes': wishes,
-            'credits': value,
-            'PAPI': papi,
-            'house': house,
-            'tookSurvey': tookSurvey
+            "schedule": schedule,
+            "name": name,
+            "matters": matters,
+            "wishes": wishes,
+            "credits": value
         }
         self.__students[_id] = Student(_id, data)
 
