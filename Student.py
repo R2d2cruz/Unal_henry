@@ -25,6 +25,8 @@ class Student:
         self.__id = _id
         self.__wishesMatters = data.get('wishes')
         self.__creditsUsed = data.get('credits')
+        self.__papi = data.get('PAPI')
+        self.__house = data.get('house')
 
     def __str__(self):
         return 'Id: ' + self.Id + '\nName: ' + self.name + '\nSchedule: ' + self.schedule
@@ -52,7 +54,9 @@ class Student:
             'name': self.__name,
             'matters': self.__matters,
             'wishes': self.__wishesMatters,
-            'credits': self.__creditsUsed
+            'credits': self.__creditsUsed,
+            'PAPI': self.__papi,
+            'house': self.__house
         }
 
     @property
@@ -64,6 +68,14 @@ class Student:
                 schedule += '\t' + hour
             schedule += '\n'
         return schedule
+
+    @property
+    def papi(self):
+        return self.__papi
+
+    @property
+    def house(self):
+        return self.__house
 
     def addMatter(self, matter: Matter) -> bool:
         matterName = matter.name
