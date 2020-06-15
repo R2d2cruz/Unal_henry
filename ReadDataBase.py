@@ -9,7 +9,6 @@ Authors:
         Henry Salomón Suárez López - 1030595912
 
 """
-# anotense ahi ☝️
 
 
 import json

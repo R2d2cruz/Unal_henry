@@ -79,7 +79,7 @@ class VisualInterface:
     def help(self, command):
         instructions = command.split(' ')
         if len(instructions) == 1:
-            print("Commands:")
+            print('Commands:')
             self.printingMessage(list(self.commands.keys()))
         elif len(instructions) == 2:
             print(instructions[1])
@@ -146,7 +146,8 @@ class VisualInterface:
     def createStu(self, command):
         name = str(input('Ingrese nombre del estudiante:\n>>>'))
         _id = str(input('Ingrese ID del estudiante:\n>>>'))
-        papi = float(input("Ingrese P.A.P.I del estudiante:\n>>>"))
+        papi = float(input('Ingrese P.A.P.I del estudiante:\n>>>'))
+        house = str(input('Ingrese carrera a la que pertenece:\n>>>'))
         wishesMatters = []
         n = int(input('Ingrese numero de materias deseadas:\n>>>'))
         for i in range(n):
@@ -155,7 +156,7 @@ class VisualInterface:
                 wishesMatters.append(wish_id)
             else:
                 print('El codigo ingresado es incorrecto')
-        self.matterManager.createStudent(name, _id, papi, wishesMatters=wishesMatters)
+        self.matterManager.createStudent(name, _id, papi, house, wishesMatters=wishesMatters)
 
     # crea una nueva materia desde la terminal
     def createMat(self, command):
