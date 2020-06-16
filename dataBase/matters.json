@@ -13,16 +13,9 @@
         "value": 3
     },
     "00003": {
-        "days": {
-            "Martes": [
-                "3:00"
-            ],
-            "Miercoles": [
-                "3:00"
-            ]
-        },
+        "days": {},
         "numStudents": 0,
-        "maxStudents": 10,
+        "maxStudents": 20,
         "name": "Calculo Diferencial",
         "owl": "Benito",
         "value": 4
