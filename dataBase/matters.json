@@ -11,5 +11,13 @@
         "name": "Cuasimodo",
         "owl": "Guillermo de la Torre",
         "value": 3
+    },
+    "00003": {
+        "days": {},
+        "numStudents": 0,
+        "maxStudents": 20,
+        "name": "Calculo Diferencial",
+        "owl": "Benito",
+        "value": 4
     }
 }
