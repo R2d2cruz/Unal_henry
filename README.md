@@ -1,3 +1,3 @@
-# Unal_henry
+# Organizador horario
  
-Puto el que lo lea
+El programa esta enfocado hacía las universidades, con el fin de organizar el horario e inscribir las materias de todos los estudiantes
