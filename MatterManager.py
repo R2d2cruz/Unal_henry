@@ -13,6 +13,7 @@ Authors:
 from Student import Student
 from Matter import Matter
 from ReadDataBase import ReadDataBase
+from queue import PriorityQueue
 
 
 class MatterManager:
@@ -41,6 +42,14 @@ class MatterManager:
 
     # aqui va el algoritmo de organizacion de horario
     def orgSchedule(self):
+        # idea
+        # studentsQueue = PriorityQueue()
+        # for student in self.students:
+        #     studentsQueue.put((5 - self.__students.get(student).papi, student))
+        #
+        # while not studentsQueue.empty():
+        #     print(studentsQueue.get())
+
         #for i in arange(5, 3, -0.01):
          #   for student in self.students:
           #      if student.papi == i:
