@@ -59,7 +59,11 @@ class MatterManager:
     def createStudent(self, name: str, _id: str, papi: float, house: str, value: int = 0,wishesMatters: list = [], matters: list = [], schedule: dict = {}):
         wishes = {}
         for matter in wishesMatters:
-            wishes[matter] = 'p'
+            matterName = self.__matters.get(matter).name
+            wishes[matter] = {
+                'name': matterName,
+                'isInscribe': 'p'
+            }
         data = {
             'schedule': schedule,
             'name': name,

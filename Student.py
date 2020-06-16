@@ -97,7 +97,7 @@ class Student:
                     return False
         # devuelve true si pudo inscribir la materia
         self.__matters.append(matterName)
-        self.__wishesMatters[matter.Id]['isInscribe'] = 'y'
+        self.__wishesMatters.get(matter.Id)['isInscribe'] = 'y'
         self.__creditsUsed += matter.value
         return True
 
