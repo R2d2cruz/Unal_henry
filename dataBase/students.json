@@ -24,7 +24,10 @@
         "name": "ew",
         "matters": [],
         "wishes": {
-            "0000": "p"
+            "0000": {
+                "name": "Cuasimodo",
+                "isInscribe": "P"
+            }
         },
         "credits": 0,
         "PAPI": 2.0,
