@@ -1,88 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-from kivy.app import App
-from kivy.lang.builder import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.core.window import Window
-
-
-class MainWindow(Screen):
-    def on_pre_enter(self):
-        Window.size = (393, 700)
-    pass
-
-
-class OptionsWindow(Screen):
-    def on_pre_enter(self):
-        Window.size = (393, 700)
-    pass
-
-
-class cremat(Screen,grid):
-    def on_pre_enter(self):
-        Window.size = (393, 700)
-    pass
-
-
-class creest(Screen):
-    def on_pre_enter(self):
-        Window.size = (393, 700)
-    pass
-
-
-class edimat(Screen):
-    def on_pre_enter(self):
-        Window.size = (393, 700)
-    pass
-
-
-class ediest(Screen):
-    def on_pre_enter(self):
-        Window.size = (393, 700)
-    pass
-
-
-class vermat(Screen):
-    def on_pre_enter(self):
-        Window.size = (393, 700)
-    pass
-
-
-class verest(Screen):
-    def on_pre_enter(self):
-        Window.size = (393, 700)
-    pass
-
-
-class crearhor(Screen):
-    def on_pre_enter(self):
-        Window.size = (393, 700)
-    pass
-
-
-class WindowManager(ScreenManager):
-    pass
-
-
-kv = Builder.load_file("GUI.kv")
-
-
-class GUI(App):
-    title = 'Horario UN'
-    def build(self):
-        return kv
-=======
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
 import kivy
 from kivy.app import App
 from kivy.lang import Builder
@@ -95,20 +10,6 @@ from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-# install kivy-deps.glew kivy-deps.sdl2
-
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
 class MyGrid(Widget):
     days = ObjectProperty(None)
     name = ObjectProperty(None)
@@ -137,33 +38,7 @@ class MyGrid(Widget):
 class GUI(App):
     def build(self):
         return MyGrid()
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Interfaz gráfica
 
 
 # if __name__ == "__main__":
 #     GUI().run()
-=======
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
-
-
-if __name__ == "__main__":
-    GUI().run()
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
-=======
->>>>>>> Interfaz gráfica
