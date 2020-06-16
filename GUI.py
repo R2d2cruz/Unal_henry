@@ -114,5 +114,5 @@ class GUI(App):
 >>>>>>> Interfaz gráfica
 
 
-if __name__ == "__main__":
-    GUI().run()
+# if __name__ == "__main__":
+#     GUI().run()
