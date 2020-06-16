@@ -147,7 +147,7 @@ class VisualInterface:
         name = str(input('Ingrese nombre del estudiante:\n>>>'))
         _id = str(input('Ingrese ID del estudiante:\n>>>'))
         papi = float(input('Ingrese P.A.P.I del estudiante:\n>>>'))
-        house = str(input('Ingrese carrera a la que pertenece:\n>>>'))
+        house = str(input('Ingrese ID de la carrera a la que pertenece:\n>>>'))
         wishesMatters = []
         n = int(input('Ingrese numero de materias deseadas:\n>>>'))
         for i in range(n):

@@ -81,6 +81,8 @@ class Student:
         matterName = matter.name
         daysPass = {}
         for day in matter.days:
+            if self.__schedule.get(day) is None:
+                self.__schedule[day] = {}
             for hour in matter.getHoursByDay(day):
                 # se revisa cada hora de cada dia que tiene la materia
                 if self.__schedule.get(day).get(hour) is None:
