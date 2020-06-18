@@ -47,7 +47,7 @@ class Matter:
     def addStudent(self):
         self.__numStudents += 1
 
-    def hasSpace(self):
+    def vacancy(self):
         return self.__numStudents < self.__maxStudents
 
     # añadir sobrecupos a la materia
