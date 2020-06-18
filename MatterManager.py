@@ -43,21 +43,28 @@ class MatterManager:
     # aqui va el algoritmo de organizacion de horario
     def orgSchedule(self):
         # idea
-        # studentsQueue = PriorityQueue()
-        # for student in self.students:
-        #     studentsQueue.put((5 - self.__students.get(student).papi, student))
-        #
-        # while not studentsQueue.empty():
-        #     print(studentsQueue.get())
-
-        #for i in arange(5, 3, -0.01):
-         #   for student in self.students:
-          #      if student.papi == i:
-           #         self.__sortedstudents[student] = Student(student, self.__reader.getStudentById(student))
-            
+        #obtiene lista de tuplas de papas y código de studiantes ordenadas de mayor a menor
+        #ordererstudents = []
+        studentsQueue = PriorityQueue()
         for student in self.students:
-            for matter in self.__students.get(student).wishes:
-                self.__students.get(student).addMatter(self.__matters.get(matter))
+            studentsQueue.put((5 - self.__students.get(student).papi, student))
+        
+        while not studentsQueue.empty():
+            student_id = studentsQueue.get()[1]
+            student = self.__students.get(student_id)
+            for matterid in student.wishes:
+                matter = self.__matters.get(matterid)
+                if student.addMatter(matter):
+                    print("La materia fue inscrita")
+                else:
+                    print("La materia no pudo ser inscrita :(")
+                
+            #ordererstudents.append(studentsQueue.get())
+        
+        #Inscribe materias de acuerdo a los primeros lugares de la lista
+        #for i in ordererstudents:
+            #self.__students.get(i[1]).addMatter(self.__matters.get(matter))
+            #print(studentsQueue[1])
                     
                 #else:
                 #    return("la materia no tiene cupos suficientes")
