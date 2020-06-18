@@ -45,10 +45,10 @@ class Matter:
 
     # Añadir estudiante al curso
     def addStudent(self):
-        if self.__numStudents < self.__maxStudents:
-            self.__numStudents += 1
-            return True
-        return False
+        self.__numStudents += 1
+
+    def vacancy(self):
+        return self.__numStudents < self.__maxStudents
 
     # añadir sobrecupos a la materia
     def overCoop(self, overCoops: int = 1):
