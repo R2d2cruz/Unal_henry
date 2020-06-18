@@ -50,10 +50,10 @@ class MatterManager:
             studentsQueue.put((5 - self.__students.get(student).papi, student))
         
         while not studentsQueue.empty():
-            student_id = studentsQueue.get()[1]
-            student = self.__students.get(student_id)
-            for matterid in student.wishes:
-                matter = self.__matters.get(matterid)
+            studentId = studentsQueue.get()[1]
+            student = self.__students.get(studentId)
+            for matterId in student.wishes:
+                matter = self.__matters.get(matterId)
                 if student.addMatter(matter):
                     print("La materia fue inscrita")
                 else:
