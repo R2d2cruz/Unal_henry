@@ -47,7 +47,10 @@
         "name": "Alfonso",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 3.4,
@@ -58,7 +61,10 @@
         "name": "Davis",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 4.2,
@@ -69,7 +75,10 @@
         "name": "Laura",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 3.8,
@@ -80,7 +89,10 @@
         "name": "Gabriel",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 3.9,
@@ -91,7 +103,10 @@
         "name": "Thomas",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 4.4,
@@ -102,7 +117,10 @@
         "name": "Carla",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 4.6,
@@ -113,7 +131,10 @@
         "name": "Santiago",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 4.0,
@@ -124,7 +145,10 @@
         "name": "Patricia",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 3.5,
@@ -135,7 +159,10 @@
         "name": "Nicolas",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 4.7,
@@ -146,7 +173,10 @@
         "name": "Julian",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 3.6,
@@ -157,7 +187,10 @@
         "name": "Oscar",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 4.5,
@@ -168,7 +201,10 @@
         "name": "Matias",
         "matters": [],
         "wishes": {
-            "00003": "p"
+            "00003": {
+                "name": "Calculo Diferencial",
+                "isInscribe": "p"
+            }
         },
         "credits": 0,
         "PAPI": 3.2,
