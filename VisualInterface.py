@@ -67,12 +67,12 @@ class VisualInterface:
         while self.on:
             command = str(input('>>>'))
             # noinspection PyArgumentList
-            try:
-                self.commands.get(command.split(' ')[0])(command)
-            except Exception as e:
-                print(e)
-                print('invalid command')
-                print('Write help to see the command')
+            # try:
+            self.commands.get(command.split(' ')[0])(command)
+            # except Exception as e:
+            #     print(e)
+            #     print('invalid command')
+            #     print('Write help to see the command')
             print('\n\n')
         print('GoodBye 🍺🍺🍺')
 
