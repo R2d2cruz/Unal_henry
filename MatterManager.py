@@ -47,7 +47,7 @@ class MatterManager:
         #ordererstudents = []
         studentsQueue = PriorityQueue()
         for student in self.students:
-            studentsQueue.put((5 - self.__students.get(student).papi, student))
+            studentsQueue.put((self.__students.get(student).priority, student))
         
         while not studentsQueue.empty():
             studentId = studentsQueue.get()[1]
