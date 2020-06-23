@@ -83,6 +83,8 @@ from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 
+# install kivy-deps.glew kivy-deps.sdl2
+
 class MyGrid(Widget):
     days = ObjectProperty(None)
     name = ObjectProperty(None)
