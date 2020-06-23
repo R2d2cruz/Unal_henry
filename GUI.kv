@@ -1,0 +1,299 @@
+WindowManager:
+    MainWindow:
+    OptionsWindow:
+    cremat:
+    creest:
+    edimat:
+    ediest:
+    vermat:
+    verest:
+    crearhor:
+
+<MainWindow>:
+    name:"main"
+
+    canvas:
+        Rectangle:
+            source: 'inicio.png'
+            pos: self.pos
+            size: self.size
+
+    Button:
+        background_normal: "iniciar.png"
+        background_down: "iniciar2.png"
+        pos: (125,100)
+        size_hint: 0.35, 0.25
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'right'
+
+
+<OptionsWindow>:
+    name: "Options"
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'Options.png'
+            pos: self.pos
+            size: self.size
+
+    Button:
+        background_normal: "cm.png"
+        background_down: "cm2.png"
+        pos: (20,450)
+        size_hint: 0.5, 0.4
+        on_release:
+            app.root.current = "CrearMat"
+            root.manager.transition.direction = 'right'
+
+    Button:
+        background_normal: "ce.png"
+        background_down: "ce2.png"
+        pos: (180,450)
+        size_hint: 0.5, 0.4
+        on_release:
+            app.root.current = "CrearEst"
+            root.manager.transition.direction = 'right'
+
+    Button:
+        background_normal: "em.png"
+        background_down: "em2.png"
+        pos: (20,280)
+        size_hint: 0.5, 0.4
+        on_release:
+            app.root.current = "EdiMat"
+            root.manager.transition.direction = 'right'
+
+    Button:
+        background_normal: "ee.png"
+        background_down: "ee2.png"
+        pos: (180,280)
+        size_hint: 0.5, 0.4
+        on_release:
+            app.root.current = "EdiEst"
+            root.manager.transition.direction = 'right'
+
+    Button:
+        background_normal: "vm.png"
+        background_down: "vm2.png"
+        pos: (20,110)
+        size_hint: 0.5, 0.4
+        on_release:
+            app.root.current = "VerMat"
+            root.manager.transition.direction = 'right'
+
+    Button:
+        background_normal: "ve.png"
+        background_down: "ve2.png"
+        pos: (180,110)
+        size_hint: 0.5, 0.4
+        on_release:
+            app.root.current = "VerEst"
+            root.manager.transition.direction = 'right'
+
+    Button:
+        background_normal: "atras.png"
+        background_down: "atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "main"
+            root.manager.transition.direction = 'left'
+
+    Button:
+        background_normal: "ch.png"
+        background_down: "ch2.png"
+        pos: (100,-10)
+        size_hint: 0.5, 0.4
+        on_release:
+            app.root.current = "CrearHor"
+            root.manager.transition.direction = 'right'
+
+<cremat>:
+    name: "CrearMat"
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'Options.png'
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        rows:2
+        GridLayout:
+            cols: 2
+            Label:
+                markup: True
+                font_size: 15
+                text: "Numero de estudiantes: "
+            TextInput:
+                id: numStidents
+                multiline: False
+            Label:
+                text: "Maximo de estudiantes: "
+                font_size: 15
+                color: 1,.5,0,1
+            TextInput:
+                id: maxStudents
+                multiline: False
+            Label:
+                text:  "Nombre de la materia: "
+                font_size: 15
+                color: 1,.5,0,1
+            TextInput:
+                id: namemat
+                multiline: False
+            Label:
+                text:  "Nombre del profesor: "
+                font_size: 15
+                color: 1,.5,0,1
+            TextInput:
+                id: namemat
+                multiline: False
+            Label:
+                text:  "Valor en creditos: "
+                font_size: 15
+                color: 1,.5,0,1
+            TextInput:
+                id: namemat
+                multiline: False
+        GridLayout:
+            size_hint: 0.3,0.8
+            cols:2
+            Label:
+                text:  "  "
+                font_size: 15
+                color: 1,.5,0,1
+            Button:
+                background_normal: "guardar.png"
+                background_down: "guardar2.png"
+                size_hint: 1,5
+                on_release:
+                    app.root.current = "main"
+                    root.manager.transition.direction = 'left'
+    Button:
+        background_normal: "atras.png"
+        background_down: "atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'left'
+<creest>:
+    name: "CrearEst"
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'Options.png'
+            pos: self.pos
+            size: self.size
+    Button:
+        background_normal: "atras.png"
+        background_down: "atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'left'
+
+
+<edimat>:
+    name: "EdiMat"
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'Options.png'
+            pos: self.pos
+            size: self.size
+    Button:
+        background_normal: "atras.png"
+        background_down: "atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'left'
+
+<ediest>:
+    name: "EdiEst"
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'Options.png'
+            pos: self.pos
+            size: self.size
+    Button:
+        background_normal: "atras.png"
+        background_down: "atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'left'
+
+<vermat>:
+    name: "VerMat"
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'Options.png'
+            pos: self.pos
+            size: self.size
+    Button:
+        background_normal: "atras.png"
+        background_down: "atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'left'
+
+<verest>:
+    name: "VerEst"
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'Options.png'
+            pos: self.pos
+            size: self.size
+    Button:
+        background_normal: "atras.png"
+        background_down: "atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'left'
+
+<crearhor>:
+    name: "CrearHor"
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'Options.png'
+            pos: self.pos
+            size: self.size
+    Button:
+        background_normal: "atras.png"
+        background_down: "atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'left'
