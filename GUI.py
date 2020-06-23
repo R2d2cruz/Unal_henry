@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+import grid as grid
 from kivy.app import App
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
