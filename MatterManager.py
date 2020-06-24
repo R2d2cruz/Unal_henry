@@ -54,7 +54,7 @@ class MatterManager:
             student = self.__students.get(studentId)
             for matterId in student.wishes:
                 matter = self.__matters.get(matterId)
-                if matter.hasSpace() and student.addMatter(matter):
+                if matter.vacancy() and student.addMatter(matter):
                     matter.addStudent()
                     print("La materia fue inscrita")
                 else:
