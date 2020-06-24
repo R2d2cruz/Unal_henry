@@ -84,7 +84,8 @@ class MatterManager:
         return students
 
     # crea un nuevo estudiante
-    def createStudent(self, name: str, _id: str, papi: float, house: str, value: int = 0,wishesMatters: list = [], matters: list = [], schedule: dict = {}):
+    def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool, value: int = 0,
+                      wishesMatters: list = [], matters: list = [], schedule: dict = {}):
         wishes = {}
         for matter in wishesMatters:
             wishes[matter] = {
@@ -98,7 +99,8 @@ class MatterManager:
             'wishes': wishes,
             'credits': value,
             'PAPI': papi,
-            'house': house
+            'house': house,
+            'tookSurvey': tookSurvey
         }
         self.__students[_id] = Student(_id, data)
 

@@ -166,7 +166,7 @@ class VisualInterface:
                 wishesMatters.append(wish_id)
             else:
                 print('El codigo ingresado es incorrecto')
-        self.matterManager.createStudent(name, _id, papi, house, wishesMatters=wishesMatters)
+        self.matterManager.createStudent(name, _id, papi, house, tookSurvey,wishesMatters=wishesMatters)
 
     # crea una nueva materia desde la terminal
     def createMat(self, command):
