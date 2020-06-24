@@ -147,7 +147,8 @@ class VisualInterface:
         name = str(input('Ingrese nombre del estudiante:\n>>>'))
         _id = str(input('Ingrese ID del estudiante:\n>>>'))
         papi = float(input('Ingrese P.A.P.I del estudiante:\n>>>'))
-        house = str(input('Ingrese ID de la carrera a la que pertenece:\n>>>'))m = False
+        house = str(input('Ingrese ID de la carrera a la que pertenece:\n>>>'))
+        m = False
         while not m:
             m = True
             survey = str(input('Ingrese si el estudiante realizo o no la encuesta: (y: si, n: no)\n>>>')).lower()
