@@ -27,6 +27,7 @@ class Student:
         self.__creditsUsed = data.get('credits')
         self.__papi = data.get('PAPI')
         self.__house = data.get('house')
+        self.__tookSurvey = data.get('tookSurvey')
 
     def __str__(self):
         return 'Id: ' + self.Id + '\nName: ' + self.name + '\nSchedule: ' + self.schedule
@@ -56,7 +57,8 @@ class Student:
             'wishes': self.__wishesMatters,
             'credits': self.__creditsUsed,
             'PAPI': self.__papi,
-            'house': self.__house
+            'house': self.__house,
+            'tookSurvey': self.__tookSurvey
         }
 
     @property
@@ -70,7 +72,14 @@ class Student:
         return schedule
 
     @property
-    def papi(self):
+    def priority(self) -> float:
+        priority = 5 - self.papi
+        if not self.__tookSurvey:
+            priority += 0.5
+        return priority
+
+    @property
+    def papi(self) -> float:
         return self.__papi
 
     @property
