@@ -20,7 +20,8 @@
         },
         "credits": 4,
         "PAPI": 3.4,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "123": {
         "schedule": {
@@ -42,7 +43,8 @@
         },
         "credits": 3,
         "PAPI": 2.0,
-        "house": "er"
+        "house": "er",
+        "tookSurvey": true
     },
     "0001": {
         "schedule": {},
@@ -57,7 +59,8 @@
         },
         "credits": 0,
         "PAPI": 3.4,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0002": {
         "schedule": {},
@@ -72,7 +75,8 @@
         },
         "credits": 0,
         "PAPI": 4.2,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0003": {
         "schedule": {},
@@ -87,7 +91,8 @@
         },
         "credits": 0,
         "PAPI": 3.8,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0004": {
         "schedule": {},
@@ -102,7 +107,8 @@
         },
         "credits": 0,
         "PAPI": 3.9,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0005": {
         "schedule": {},
@@ -117,7 +123,8 @@
         },
         "credits": 0,
         "PAPI": 4.4,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0006": {
         "schedule": {},
@@ -132,7 +139,8 @@
         },
         "credits": 0,
         "PAPI": 4.6,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0007": {
         "schedule": {},
@@ -147,7 +155,8 @@
         },
         "credits": 0,
         "PAPI": 4.0,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0008": {
         "schedule": {},
@@ -162,7 +171,8 @@
         },
         "credits": 0,
         "PAPI": 3.5,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0009": {
         "schedule": {},
@@ -177,7 +187,8 @@
         },
         "credits": 0,
         "PAPI": 4.7,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0010": {
         "schedule": {},
@@ -192,7 +203,8 @@
         },
         "credits": 0,
         "PAPI": 3.6,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0011": {
         "schedule": {},
@@ -207,7 +219,8 @@
         },
         "credits": 0,
         "PAPI": 4.5,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     },
     "0012": {
         "schedule": {},
@@ -222,6 +235,7 @@
         },
         "credits": 0,
         "PAPI": 3.2,
-        "house": "0001"
+        "house": "0001",
+        "tookSurvey": false
     }
 }
