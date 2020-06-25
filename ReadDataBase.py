@@ -20,10 +20,10 @@ class ReadDataBase:
         self.__studentsFileLoc: str = self.__directory + students
         self.__mattersFileLoc: str = self.__directory + matters
         with open(self.__studentsFileLoc, 'r') as studentsFile:
-            self.__studentsData = json.load(studentsFile)
+            self.__studentsData: dict = json.load(studentsFile)
             studentsFile.close()
         with open(self.__mattersFileLoc, 'r') as mattersFile:
-            self.__mattersData = json.load(mattersFile)
+            self.__mattersData: dict = json.load(mattersFile)
             mattersFile.close()
 
     # devuelve la lista de id´s de los estudiantes
