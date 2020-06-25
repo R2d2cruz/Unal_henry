@@ -64,16 +64,6 @@ class MatterManager:
                     print("La materia fue inscrita")
                 else:
                     print("La materia no pudo ser inscrita :(")
-                
-            #ordererstudents.append(studentsQueue.get())
-        
-        #Inscribe materias de acuerdo a los primeros lugares de la lista
-        #for i in ordererstudents:
-            #self.__students.get(i[1]).addMatter(self.__matters.get(matter))
-            #print(studentsQueue[1])
-                    
-                #else:
-                #    return("la materia no tiene cupos suficientes")
 
     def studentById(self, _id: str) -> Student:
         return self.__students.get(_id)
