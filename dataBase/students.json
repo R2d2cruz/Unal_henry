@@ -12,7 +12,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "P"
+                "isInscribe": "P",
+                "priority": 2
             }
         },
         "credits": 0,

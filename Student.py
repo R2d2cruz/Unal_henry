@@ -19,17 +19,17 @@ Authors:
 
 class Student:
     def __init__(self, _id: str, data: dict):
-        self.__schedule = data.get('schedule')
-        self.__matters = data.get('matters')
-        self.__name = data.get('name')
-        self.__id = _id
-        self.__wishesMatters = data.get('wishes')
-        self.__creditsUsed = data.get('credits')
-        self.__papi = data.get('PAPI')
-        self.__house = data.get('house')
-        self.__tookSurvey = data.get('tookSurvey')
+        self.__schedule: dict = data.get('schedule')
+        self.__matters: list = data.get('matters')
+        self.__name: str = data.get('name')
+        self.__id: str = _id
+        self.__wishesMatters: dict = data.get('wishes')
+        self.__creditsUsed: int = data.get('credits')
+        self.__papi: float = data.get('PAPI')
+        self.__house: str = data.get('house')
+        self.__tookSurvey: bool = data.get('tookSurvey')
 
-    def __str__(self):
+    def __repr__(self):
         return 'Id: ' + self.Id + '\nName: ' + self.name + '\nSchedule: ' + self.schedule
 
     # devuelve el nombre del estudiante
@@ -45,7 +45,7 @@ class Student:
     # devuelve las materias que el estudiante desea inscribir
     @property
     def wishes(self) -> list:
-        return self.__wishesMatters.keys()
+        return list(self.__wishesMatters.keys())
 
     # devuelve un diccionario con la informacion del estudiante
     @property
@@ -83,8 +83,22 @@ class Student:
         return self.__papi
 
     @property
-    def house(self):
+    def house(self) -> str:
         return self.__house
+
+    def createWishes(self, matter: Matter, priority: int = 5):
+        if matter.Id not in self.wishes:
+            self.__wishesMatters[matter.Id] = {
+                'name': matter.name,
+                'isInscribe': 'p',
+                'priority': priority
+            }
+
+    def getWishIsInscribe(self, _id: str) -> str:
+        return self.__wishesMatters.get(str).get('isInscribe')
+
+    def getWishPriority(self, _id: str) -> int:
+        return self.__wishesMatters.get(str).get('priority')
 
     def addMatter(self, matter: Matter) -> bool:
         matterName = matter.name
@@ -106,7 +120,7 @@ class Student:
                     return False
         # devuelve true si pudo inscribir la materia
         self.__matters.append(matterName)
-        self.__wishesMatters.get(matter.Id)['isInscribe'] = 'y'
+        self.__wishesMatters[matter.Id]['isInscribe'] = 'y'
         self.__creditsUsed += matter.value
         return True
 
