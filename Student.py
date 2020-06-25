@@ -95,10 +95,10 @@ class Student:
             }
 
     def getWishIsInscribe(self, _id: str) -> str:
-        return self.__wishesMatters.get(str).get('isInscribe')
+        return self.__wishesMatters.get(_id).get('isInscribe')
 
     def getWishPriority(self, _id: str) -> int:
-        return self.__wishesMatters.get(str).get('priority')
+        return self.__wishesMatters.get(_id).get('priority')
 
     def addMatter(self, matter: Matter) -> bool:
         matterName = matter.name
