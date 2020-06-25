@@ -26,12 +26,12 @@ class MatterManager:
         self.createMatters()
 
     @property
-    def students(self):
-        return self.__students.keys()
+    def students(self) -> list:
+        return list(self.__students.keys())
 
     @property
-    def mattersCodes(self):
-        return self.__matters.keys()
+    def mattersCodes(self) -> list:
+        return list(self.__matters.keys())
 
     @property
     def nameMatters(self) -> list:
@@ -85,12 +85,20 @@ class MatterManager:
 
     # crea un nuevo estudiante
     def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool, value: int = 0,
-                      wishesMatters: list = [], matters: list = [], schedule: dict = {}):
+                      wishesMatters=None, matters=None, schedule=None):
+        if schedule is None:
+            schedule = {}
+        if matters is None:
+            matters = []
+        if wishesMatters is None:
+            wishesMatters = {}
         wishes = {}
-        for matter in wishesMatters:
+        for matter in wishesMatters.keys():
+            matterName = self.__matters.get(matter).name
             wishes[matter] = {
-                'name': self.__matters.get(matter).name,
-                'isInscribe': 'P'
+                'name': matterName,
+                'isInscribe': 'p',
+                'priority': wishesMatters.get(matter)
             }
         data = {
             'schedule': schedule,
@@ -115,14 +123,17 @@ class MatterManager:
             self.__matters[matter] = Matter(matter, self.__reader.getMatterById(matter))
 
     # crea una nueva materia
-    def createMatter(self, name: str, _id: str, value: int, owl: str, maxStu: int, days: dict = {}):
+    def createMatter(self, name: str, _id: str, value: int, owl: str, maxStu: int, days=None):
+        if days is None:
+            days = {}
         data = {
             'days': days,
             'numStudents': 0,
             'maxStudents': maxStu,
             'name': name,
             'owl': owl,
-            'value': value
+            'value': value,
+            'students': []
         }
         self.__matters[_id] = Matter(_id, data)
         self.__reader.saveNewMatter(_id, data)

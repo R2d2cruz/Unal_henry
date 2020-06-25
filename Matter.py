@@ -9,45 +9,48 @@ Authors:
         Henry Salomón Suárez López - 1030595912
 """
 
+
 class Matter:
     def __init__(self, _id: str, data: dict):
-        self.__days = data.get('days')
-        self.__name = data.get('name')
-        self.__numStudents = data.get('numStudents')
-        self.__maxStudents = data.get('maxStudents')
-        self.__id = _id
-        self.__owl = data.get('owl')
-        self.__value = data.get('value')
+        self.__days: dict = data.get('days')
+        self.__name: str = data.get('name')
+        self.__numStudents: int = data.get('numStudents')
+        self.__maxStudents: int = data.get('maxStudents')
+        self.__id: str = _id
+        self.__owl: str = data.get('owl')
+        self.__value: float = data.get('value')
+        self.students: list = data.get('students')
 
     @property
-    def days(self):
-        return self.__days.keys()
+    def days(self) -> list:
+        return list(self.__days.keys())
 
     @property
-    def Id(self):
+    def Id(self) -> str:
         return self.__id
 
     @property
-    def numStudents(self):
+    def numStudents(self) -> int:
         return self.__numStudents
 
     @property
-    def name(self):
+    def name(self) -> str:
         return self.__name
 
     @property
-    def value(self):
+    def value(self) -> float:
         return self.__value
 
     # Devuelve la intesidad horaria por dia
-    def getHoursByDay(self, day: str):
+    def getHoursByDay(self, day: str) -> list:
         return self.__days.get(day)
 
     # Añadir estudiante al curso
-    def addStudent(self):
+    def addStudent(self, studentId: str):
         self.__numStudents += 1
+        self.students.append(studentId)
 
-    def vacancy(self):
+    def vacancy(self) -> bool:
         return self.__numStudents < self.__maxStudents
 
     # añadir sobrecupos a la materia
