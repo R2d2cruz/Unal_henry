@@ -14,7 +14,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "y"
+                "isInscribe": "y",
+                "priority": 5
             }
         },
         "credits": 4,
@@ -35,7 +36,8 @@
         "wishes": {
             "0000": {
                 "name": "Cuasimodo",
-                "isInscribe": "y"
+                "isInscribe": "y",
+                "priority": 5
             }
         },
         "credits": 3,
@@ -49,7 +51,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -63,7 +66,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -77,7 +81,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -91,7 +96,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -105,7 +111,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -119,7 +126,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -133,7 +141,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -147,7 +156,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -161,7 +171,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -175,7 +186,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -189,7 +201,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,
@@ -203,7 +216,8 @@
         "wishes": {
             "00003": {
                 "name": "Calculo Diferencial",
-                "isInscribe": "p"
+                "isInscribe": "p",
+                "priority": 5
             }
         },
         "credits": 0,

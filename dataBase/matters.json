@@ -10,7 +10,8 @@
         "maxStudents": 10,
         "name": "Cuasimodo",
         "owl": "Guillermo de la Torre",
-        "value": 3
+        "value": 3,
+        "students": []
     },
     "00003": {
         "days": {
@@ -25,6 +26,7 @@
         "maxStudents": 10,
         "name": "Calculo Diferencial",
         "owl": "Benito",
-        "value": 4
+        "value": 4,
+        "students": []
     }
 }
