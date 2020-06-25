@@ -19,6 +19,7 @@ class OptionsWindow(Screen):
 
 class cremat(Screen):
     __metaclass__ = grid
+    
     def on_pre_enter(self):
         Window.size = (393, 700)
     pass
