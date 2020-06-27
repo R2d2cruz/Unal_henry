@@ -13,6 +13,7 @@ Authors:
 from Student import Student
 from Matter import Matter
 from ReadDataBase import ReadDataBase
+from queue import PriorityQueue
 
 
 class MatterManager:
@@ -40,7 +41,28 @@ class MatterManager:
 
     # aqui va el algoritmo de organizacion de horario
     def orgSchedule(self):
-        pass
+        # idea
+        # obtiene lista de tuplas de papas y código de studiantes ordenadas de mayor a menor
+        # orderedStudents = []
+        studentsQueue = PriorityQueue()
+        for student in self.students:
+            studentsQueue.put((self.__students.get(student).priority, student))
+        
+        while not studentsQueue.empty():
+            studentId: str = studentsQueue.get()[1]
+            student: Student = self.__students.get(studentId)
+            wishes = PriorityQueue()
+            for matterId in student.wishes:
+                if student.getWishIsInscribe(matterId) != 'y':
+                    wishes.put((student.getWishPriority(matterId), matterId))
+            while not wishes.empty():
+                matterId: str = wishes.get()[1]
+                matter: Matter = self.__matters.get(matterId)
+                if matter.vacancy() and student.addMatter(matter):
+                    matter.addStudent(studentId)
+                    print("La materia fue inscrita")
+                else:
+                    print("La materia no pudo ser inscrita :(")
 
     def studentById(self, _id: str) -> Student:
         return self.__students.get(_id)
