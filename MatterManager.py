@@ -20,7 +20,6 @@ class MatterManager:
     def __init__(self):
         self.__reader = ReadDataBase()
         self.__students = {}
-        self.__sortedstudents = {}
         self.__matters = {}
         self.createStudents()
         self.createMatters()
