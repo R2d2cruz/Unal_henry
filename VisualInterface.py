@@ -147,7 +147,13 @@ class VisualInterface:
         tookSurvey = False
         name = str(input('Ingrese nombre del estudiante:\n>>>'))
         _id = str(input('Ingrese ID del estudiante:\n>>>'))
-        papi = float(input('Ingrese P.A.P.I del estudiante:\n>>>'))
+        while True:
+            try:
+                papi = float(input('Ingrese P.A.P.I del estudiante:\n>>>'))
+                if 0 < papi < 5:
+                    break
+            except TypeError:
+                print('Eso no es un numero :p :p')
         house = str(input('Ingrese ID de la carrera a la que pertenece:\n>>>'))
         m = False
         while not m:
