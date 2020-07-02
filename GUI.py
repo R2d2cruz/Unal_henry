@@ -11,11 +11,42 @@ class DataManager(object):
     def __init__(self):
         self.matterManager = MatterManager()
 
+    @staticmethod
+    def verificationStudentName(name: str) -> bool:
+        if not (0 < len(name.split(' ')) < 6):
+            return False
+        if not name.isalpha():
+            return False
+        name.lower()
+        for word in name.split(' '):
+            alterableWord = word
+            alterableWord[0].upper()
+            name.replace(word, alterableWord)
+        return True
+
+    @staticmethod
+    def verificationPapi(papi: float) -> bool:
+        return papi < 0 or papi > 5
+
     def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool, value: int = 0,
                       wishesMatters=None, matters=None, schedule=None) -> bool:
+        if schedule is None:
+            schedule = {}
+        if matters is None:
+            matters = []
+        if wishesMatters is None:
+            wishesMatters = {}
+        nameOk = self.verificationStudentName(name)
+        papiOk = self.verificationPapi(papi)
+        if nameOk and papiOk:
+            self.matterManager.createStudent(name, _id, papi, house, tookSurvey, value, wishesMatters=wishesMatters,
+                                             matters=matters, schedule=schedule)
+            return True
         return False
 
     def createMatter(self, name: str, _id: str, value: int, owl: str, maxStu: int, days=None) -> bool:
+        if days is None:
+            days = {}
         return False
 
 
@@ -35,7 +66,6 @@ class OptionsWindow(Screen):
 
 
 class cremat(Screen):
-
     days = ObjectProperty(None)
     namematt = ObjectProperty(None)
     numbstud = ObjectProperty(None)
@@ -55,22 +85,23 @@ class cremat(Screen):
 
 
 class creest(Screen):
-
     schedule: ObjectProperty(None)
     nameStudents: ObjectProperty(None)
     idStudents: ObjectProperty(None)
     wishesMatters: ObjectProperty(None)
     creditsUsed: ObjectProperty(None)
     matters: ObjectProperty(None)
-    papi:ObjectProperty(None)
+    papi: ObjectProperty(None)
     college: ObjectProperty(None)
     tookSurvey: ObjectProperty(None)
 
     def ChrgStud(self):
-        print("Días:", self.schedule.text, "Nombre:", self.nameStudents.text, "Número de estudiantes:", self.idStudents.text,
+        print("Días:", self.schedule.text, "Nombre:", self.nameStudents.text, "Número de estudiantes:",
+              self.idStudents.text,
               "Número máximo de estudiantes:",
               self.wishesMatters.text, "Código de la materia:", self.creditsUsed.text, "Profesor:", self.matters.text,
-              "Valor en créditos:", self.papi.text, "Valor en créditos:", self.college.text, "Valor en créditos:", self.tookSurvey.text)
+              "Valor en créditos:", self.papi.text, "Valor en créditos:", self.college.text, "Valor en créditos:",
+              self.tookSurvey.text)
 
     def on_pre_enter(self):
         Window.size = (393, 700)
@@ -117,7 +148,6 @@ class Constructor:
 
 
 class GUI(App):
-
     title = 'Horario UN'
 
     def __init__(self, kv, **kwargs):
@@ -126,7 +156,6 @@ class GUI(App):
 
     def build(self):
         return self.kv
-
 
 # if __name__ == "__main__":
 #     GUI().run()
