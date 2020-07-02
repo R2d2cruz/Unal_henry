@@ -8,6 +8,9 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 from MatterManager import MatterManager
 
+ValidDays: list = list()
+ValidHours: list = list()
+
 
 class DataManager(object):
     def __init__(self):
@@ -36,12 +39,22 @@ class DataManager(object):
         return 0 <= papi <= 5
 
     @staticmethod
-    def verificationId(_id):
+    def verificationId(_id: str) -> bool:
         if _id is str:
             try:
                 m = int(_id)
             except Exception:
                 return False
+        return True
+
+    @staticmethod
+    def verificationSchedule(days: dict) -> bool:
+        for day in days.keys():
+            if day not in ValidDays:
+                return False
+            for hour in days.get(day).keys():
+                if hour not in ValidHours:
+                    return False
         return True
 
     def verificationMatters(self, matters: list) -> bool:
@@ -54,6 +67,9 @@ class DataManager(object):
                       wishesMatters=None, matters: str = None, schedule=None) -> bool:
         if schedule is None:
             schedule = {}
+            scheduleOk = True
+        else:
+            scheduleOk = self.verificationSchedule(schedule)
         if matters is None or len(matters) == 0:
             mattersList = []
             mattersOk = True
@@ -70,7 +86,7 @@ class DataManager(object):
         nameOk = name is not None
         papiOk = self.verificationPapi(papi)
         idOk = self.verificationId(_id)
-        if nameOk and papiOk and mattersOk and wishesOk and idOk:
+        if nameOk and papiOk and mattersOk and wishesOk and idOk and scheduleOk:
             self.matterManager.createStudent(name, _id, papi, house, tookSurvey, value, wishesMatters=wishesMattersList,
                                              matters=mattersList, schedule=schedule)
             return True
@@ -79,13 +95,16 @@ class DataManager(object):
     def createMatter(self, name: str, _id: str, value: int, owl: str, maxStu: int, days=None) -> bool:
         if days is None:
             days = {}
+            daysOk = True
+        else:
+            daysOk = self.verificationSchedule(days)
         name = self.verificationName(name)
         nameOk = name is not None
         owl = self.verificationName(owl)
         owlOk = owl is not None
         idOk = self.verificationId(_id)
-        if nameOk and owlOk and idOk:
-            if dataManager.matterManager.createMatter(name=name, _id=_id, value=value, owl=owl, maxStu=maxStu):
+        if nameOk and owlOk and idOk and daysOk:
+            if dataManager.matterManager.createMatter(name, _id, value, owl, maxStu, days=days):
                 dataManager.save()
                 return True
         return False
@@ -187,6 +206,11 @@ class Constructor:
         self.gui = GUI(self.kv)
         global dataManager
         dataManager = DataManager()
+        global ValidDays
+        ValidDays = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
+        global ValidHours
+        for i in range(7, 23):
+            ValidHours.append(str(i) + ':00')
 
     def run(self):
         self.gui.run()
