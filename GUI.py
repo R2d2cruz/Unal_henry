@@ -50,7 +50,7 @@ class DataManager(object):
                 return False
         return True
 
-    def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool, value: int = 0,
+    def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool = False, value: int = 0,
                       wishesMatters=None, matters: str = None, schedule=None) -> bool:
         if schedule is None:
             schedule = {}
