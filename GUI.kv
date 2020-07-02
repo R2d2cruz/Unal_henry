@@ -113,6 +113,13 @@ WindowManager:
 
 <cremat>:
     name: "CrearMat"
+    days: days
+    namematt: nameMatt
+    numbstud: numStudents
+    maxstud: maxStudents
+    mattcode: mattcode
+    owl: owl
+    credits: credits
 
     canvas:
         Color:
@@ -129,9 +136,26 @@ WindowManager:
             Label:
                 markup: True
                 font_size: 15
+                color: 1,.5,0,1
+                text: "Dias de actividad: "
+            TextInput:
+                id: days
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Nombre de la materia: "
+            TextInput:
+                id: nameMatt
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
                 text: "Numero de estudiantes: "
             TextInput:
-                id: numStidents
+                id: numStudents
                 multiline: False
             Label:
                 text: "Maximo de estudiantes: "
@@ -141,26 +165,27 @@ WindowManager:
                 id: maxStudents
                 multiline: False
             Label:
-                text:  "Nombre de la materia: "
+                text: "Codigo de la materia: "
                 font_size: 15
                 color: 1,.5,0,1
             TextInput:
-                id: namemat
+                id: mattcode
                 multiline: False
             Label:
                 text:  "Nombre del profesor: "
                 font_size: 15
                 color: 1,.5,0,1
             TextInput:
-                id: namemat
+                id: owl
                 multiline: False
             Label:
                 text:  "Valor en creditos: "
                 font_size: 15
                 color: 1,.5,0,1
             TextInput:
-                id: namemat
+                id: credits
                 multiline: False
+
         GridLayout:
             size_hint: 0.3,0.8
             cols:2
@@ -169,11 +194,13 @@ WindowManager:
                 font_size: 15
                 color: 1,.5,0,1
             Button:
+                id: ChrgMatter
                 background_normal: "assets/guardar.png"
                 background_down: "assets/guardar2.png"
                 size_hint: 1,5
+                on_press: root.ChrgMatter()
                 on_release:
-                    app.root.current = "main"
+                    app.root.current = "CrearMat"
                     root.manager.transition.direction = 'left'
     Button:
         background_normal: "assets/atras.png"
@@ -185,6 +212,15 @@ WindowManager:
             root.manager.transition.direction = 'left'
 <creest>:
     name: "CrearEst"
+    schedule: schedule
+    nameStudents: nameStudents
+    idStudents: idStudents
+    wishesMatters: wishesMatters
+    creditsUsed: creditsUsed
+    matters: matters
+    papi:papi
+    college: college
+    tookSurvey: tookSurvey
 
     canvas:
         Color:
@@ -193,6 +229,100 @@ WindowManager:
             source: 'assets/Options.png'
             pos: self.pos
             size: self.size
+
+    GridLayout:
+        rows:2
+        GridLayout:
+            cols: 2
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Calendario: "
+            TextInput:
+                id: schedule
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Nombre del estudiante: "
+            TextInput:
+                id: nameStudents
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Codigo de estudiante: "
+            TextInput:
+                id: idStudents
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Materias deseadas: "
+            TextInput:
+                id: wishesMatters
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Creditos usados: "
+            TextInput:
+                id: creditsUsed
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Materias inscritas: "
+            TextInput:
+                id: matters
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "PAPI: "
+            TextInput:
+                id: papi
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Facultad: "
+            TextInput:
+                id: college
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Realiza la encuesta: "
+            TextInput:
+                id: tookSurvey
+                multiline: False
+
+        GridLayout:
+            size_hint: 0.3,0.8
+            cols:2
+            Label:
+                text:  "  "
+                font_size: 15
+                color: 1,.5,0,1
+            Button:
+                id: ChrgMatter
+                background_normal: "assets/guardar.png"
+                background_down: "assets/guardar2.png"
+                size_hint: 1,5
+                on_press: root.ChrgStud()
+                on_release:
+                    app.root.current = "CrearEst"
+                    root.manager.transition.direction = 'left'
     Button:
         background_normal: "assets/atras.png"
         background_down: "assets/atras2.png"
@@ -201,7 +331,6 @@ WindowManager:
         on_release:
             app.root.current = "Options"
             root.manager.transition.direction = 'left'
-
 
 <edimat>:
     name: "EdiMat"
@@ -229,7 +358,7 @@ WindowManager:
         Color:
             rgb: 1,1,1
         Rectangle:
-            source: 'Options.png'
+            source: 'assets/Options.png'
             pos: self.pos
             size: self.size
     Button:
