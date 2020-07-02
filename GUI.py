@@ -68,7 +68,6 @@ class OptionsWindow(Screen):
 class cremat(Screen):
     days = ObjectProperty(None)
     namematt = ObjectProperty(None)
-    numbstud = ObjectProperty(None)
     maxstud = ObjectProperty(None)
     mattcode = ObjectProperty(None)
     owl = ObjectProperty(None)
@@ -102,7 +101,8 @@ class creest(Screen):
               self.wishesMatters.text, "Código de la materia:", self.creditsUsed.text, "Profesor:", self.matters.text,
               "Valor en créditos:", self.papi.text, "Valor en créditos:", self.college.text, "Valor en créditos:",
               self.tookSurvey.text)
-
+        dataManager.createStudent(self.nameStudents.text, self.idStudents.text, float(self.papi.text), self.college.text, self.tookSurvey.text)
+        
     def on_pre_enter(self):
         Window.size = (393, 700)
 
