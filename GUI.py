@@ -1,28 +1,37 @@
 from kivy.app import App
+from kivy.core.window import Window
 from kivy.lang.builder import Builder
-from kivy.uix.button import Button
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.label import Label
-from kivy.uix.textinput import TextInput
-from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.boxlayout import BoxLayout
-from kivy.core.image import Image
-from kivy.core.window import Window
+
+from MatterManager import MatterManager
+
+
+class DataManager(object):
+    def __init__(self):
+        self.matterManager = MatterManager()
+
+    def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool, value: int = 0,
+                      wishesMatters=None, matters=None, schedule=None) -> bool:
+        return False
+
+    def createMatter(self, name: str, _id: str, value: int, owl: str, maxStu: int, days=None) -> bool:
+        return False
+
+
+# noinspection PyTypeChecker
+dataManager: DataManager = None
 
 
 class MainWindow(Screen):
     def on_pre_enter(self):
         Window.size = (393, 700)
-    pass
 
 
 class OptionsWindow(Screen):
 
     def on_pre_enter(self):
         Window.size = (393, 700)
-    pass
 
 
 class cremat(Screen):
@@ -43,7 +52,6 @@ class cremat(Screen):
 
     def on_pre_enter(self):
         Window.size = (393, 700)
-    pass
 
 
 class creest(Screen):
@@ -66,37 +74,31 @@ class creest(Screen):
 
     def on_pre_enter(self):
         Window.size = (393, 700)
-    pass
 
 
 class edimat(Screen):
     def on_pre_enter(self):
         Window.size = (393, 700)
-    pass
 
 
 class ediest(Screen):
     def on_pre_enter(self):
         Window.size = (393, 700)
-    pass
 
 
 class vermat(Screen):
     def on_pre_enter(self):
         Window.size = (393, 700)
-    pass
 
 
 class verest(Screen):
     def on_pre_enter(self):
         Window.size = (393, 700)
-    pass
 
 
 class crearhor(Screen):
     def on_pre_enter(self):
         Window.size = (393, 700)
-    pass
 
 
 class WindowManager(ScreenManager):
@@ -107,6 +109,8 @@ class Constructor:
     def __init__(self):
         self.kv = Builder.load_file("GUI.kv")
         self.gui = GUI(self.kv)
+        global dataManager
+        dataManager = DataManager()
 
     def run(self):
         self.gui.run()
