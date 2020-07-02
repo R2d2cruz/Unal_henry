@@ -15,7 +15,7 @@ class DataManager(object):
     def verificationStudentName(name: str) -> bool:
         if not (0 < len(name.split(' ')) < 6):
             return False
-        if not name.isalpha():
+        if name.isalpha():
             return False
         name.lower()
         for word in name.split(' '):
@@ -26,25 +26,25 @@ class DataManager(object):
 
     @staticmethod
     def verificationPapi(papi: float) -> bool:
-        return papi < 0 or papi > 5
+        return 0 <= papi <= 5
 
     @staticmethod
     def verificationId(_id):
         if _id is str:
             try:
                 m = int(_id)
-            except ValueError:
+            except Exception:
                 return False
         return True
 
-    def verificationMatters(self, wishes: list) -> bool:
-        for matterId in wishes:
+    def verificationMatters(self, matters: list) -> bool:
+        for matterId in matters:
             if not self.verificationId(matterId):
                 return False
         return True
 
     def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool, value: int = 0,
-                      wishesMatters=None, matters: str=None, schedule=None) -> bool:
+                      wishesMatters=None, matters: str = None, schedule=None) -> bool:
         if schedule is None:
             schedule = {}
         if matters is None:
@@ -54,11 +54,14 @@ class DataManager(object):
             mattersList = matters.splitlines()
             mattersOk = self.verificationMatters(mattersList)
         if wishesMatters is None:
-            wishesMatters = {}
+            wishesMattersList = {}
+            wishesOk = True
+        else:
+            wishesMattersList = wishesMatters
         nameOk = self.verificationStudentName(name)
         papiOk = self.verificationPapi(papi)
         if nameOk and papiOk and mattersOk:
-            self.matterManager.createStudent(name, _id, papi, house, tookSurvey, value, wishesMatters=wishesMatters,
+            self.matterManager.createStudent(name, _id, papi, house, tookSurvey, value, wishesMatters=wishesMattersList,
                                              matters=mattersList, schedule=schedule)
             return True
         return False
@@ -123,8 +126,10 @@ class creest(Screen):
               self.wishesMatters.text, "Código de la materia:", self.creditsUsed.text, "Profesor:", self.matters.text,
               "Valor en créditos:", self.papi.text, "Valor en créditos:", self.college.text, "Valor en créditos:",
               self.tookSurvey.text)
-        dataManager.createStudent(self.nameStudents.text, self.idStudents.text, float(self.papi.text), self.college.text, self.tookSurvey.text)
-        
+        if dataManager.createStudent(self.nameStudents.text, self.idStudents.text, float(self.papi.text),
+                                     self.college.text, self.tookSurvey.text):
+            dataManager.save()
+
     def on_pre_enter(self):
         Window.size = (393, 700)
 
