@@ -65,14 +65,26 @@ class WindowManager(ScreenManager):
     pass
 
 
-kv = Builder.load_file("GUI.kv")
+class Constructor:
+    def __init__(self):
+        self.kv = Builder.load_file("GUI.kv")
+        self.gui = GUI(self.kv)
+
+    def run(self):
+        self.gui.run()
 
 
 class GUI(App):
+
     title = 'Horario UN'
+
+    def __init__(self, kv, **kwargs):
+        super().__init__(**kwargs)
+        self.kv = kv
+
     def build(self):
-        return kv
+        return self.kv
 
 
-if __name__ == "__main__":
-    GUI().run()
+# if __name__ == "__main__":
+#     GUI().run()
