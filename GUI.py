@@ -28,19 +28,38 @@ class DataManager(object):
     def verificationPapi(papi: float) -> bool:
         return papi < 0 or papi > 5
 
+    @staticmethod
+    def verificationId(_id):
+        if _id is str:
+            try:
+                m = int(_id)
+            except ValueError:
+                return False
+        return True
+
+    def verificationMatters(self, wishes: list) -> bool:
+        for matterId in wishes:
+            if not self.verificationId(matterId):
+                return False
+        return True
+
     def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool, value: int = 0,
-                      wishesMatters=None, matters=None, schedule=None) -> bool:
+                      wishesMatters=None, matters: str=None, schedule=None) -> bool:
         if schedule is None:
             schedule = {}
         if matters is None:
-            matters = []
+            mattersList = []
+            mattersOk = True
+        else:
+            mattersList = matters.splitlines()
+            mattersOk = self.verificationMatters(mattersList)
         if wishesMatters is None:
             wishesMatters = {}
         nameOk = self.verificationStudentName(name)
         papiOk = self.verificationPapi(papi)
-        if nameOk and papiOk:
+        if nameOk and papiOk and mattersOk:
             self.matterManager.createStudent(name, _id, papi, house, tookSurvey, value, wishesMatters=wishesMatters,
-                                             matters=matters, schedule=schedule)
+                                             matters=mattersList, schedule=schedule)
             return True
         return False
 
@@ -48,6 +67,9 @@ class DataManager(object):
         if days is None:
             days = {}
         return False
+
+    def save(self):
+        self.matterManager.saveAll()
 
 
 # noinspection PyTypeChecker
