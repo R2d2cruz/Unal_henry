@@ -1,3 +1,5 @@
+from typing import Optional
+
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
@@ -12,17 +14,22 @@ class DataManager(object):
         self.matterManager = MatterManager()
 
     @staticmethod
-    def verificationStudentName(name: str) -> bool:
+    def verificationName(name: str) -> Optional[str]:
+        if name is None:
+            return None
         if not (0 < len(name.split(' ')) < 6):
-            return False
+            return None
         if name.isalpha():
-            return False
+            return None
         name.lower()
         for word in name.split(' '):
-            alterableWord = word
-            alterableWord[0].upper()
-            name.replace(word, alterableWord)
-        return True
+            if word != ' ':
+                alterableWord = word
+                alterableWord[0].upper()
+                name.replace(word, alterableWord)
+            else:
+                break
+        return name
 
     @staticmethod
     def verificationPapi(papi: float) -> bool:
@@ -59,9 +66,11 @@ class DataManager(object):
         else:
             wishesMattersList = wishesMatters.splitLines()
             wishesOk = self.verificationMatters(wishesMattersList)
-        nameOk = self.verificationStudentName(name)
+        name = self.verificationName(name)
+        nameOk = name is not None
         papiOk = self.verificationPapi(papi)
-        if nameOk and papiOk and mattersOk and wishesOk:
+        idOk = self.verificationId(_id)
+        if nameOk and papiOk and mattersOk and wishesOk and idOk:
             self.matterManager.createStudent(name, _id, papi, house, tookSurvey, value, wishesMatters=wishesMattersList,
                                              matters=mattersList, schedule=schedule)
             return True
@@ -70,6 +79,15 @@ class DataManager(object):
     def createMatter(self, name: str, _id: str, value: int, owl: str, maxStu: int, days=None) -> bool:
         if days is None:
             days = {}
+        name = self.verificationName(name)
+        nameOk = name is not None
+        owl = self.verificationName(owl)
+        owlOk = owl is not None
+        idOk = self.verificationId(_id)
+        if nameOk and owlOk and idOk:
+            if dataManager.matterManager.createMatter(name=name, _id=_id, value=value, owl=owl, maxStu=maxStu):
+                dataManager.save()
+                return True
         return False
 
     def save(self):
