@@ -47,20 +47,21 @@ class DataManager(object):
                       wishesMatters=None, matters: str = None, schedule=None) -> bool:
         if schedule is None:
             schedule = {}
-        if matters is None:
+        if matters is None or len(matters) == 0:
             mattersList = []
             mattersOk = True
         else:
             mattersList = matters.splitlines()
             mattersOk = self.verificationMatters(mattersList)
-        if wishesMatters is None:
+        if wishesMatters is None or len(wishesMatters) == 0:
             wishesMattersList = {}
             wishesOk = True
         else:
-            wishesMattersList = wishesMatters
+            wishesMattersList = wishesMatters.splitLines()
+            wishesOk = self.verificationMatters(wishesMattersList)
         nameOk = self.verificationStudentName(name)
         papiOk = self.verificationPapi(papi)
-        if nameOk and papiOk and mattersOk:
+        if nameOk and papiOk and mattersOk and wishesOk:
             self.matterManager.createStudent(name, _id, papi, house, tookSurvey, value, wishesMatters=wishesMattersList,
                                              matters=mattersList, schedule=schedule)
             return True
