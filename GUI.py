@@ -87,7 +87,6 @@ class DataManager(object):
         papiOk = self.verificationPapi(papi)
         idOk = self.verificationId(_id)
         if nameOk and papiOk and mattersOk and wishesOk and idOk and scheduleOk:
-            print('hola')
             self.matterManager.createStudent(name, _id, papi, house, tookSurvey, value, wishesMatters=wishesMattersList,
                                              matters=mattersList, schedule=schedule)
             return True
@@ -141,9 +140,9 @@ class cremat(Screen):
               self.maxstud.text, "Código de la materia:", self.mattcode.text, "Profesor:", self.owl.text,
               "Valor en créditos:", self.credits.text)
         if dataManager.createMatter(self.namematt.text, self.mattcode.text, int(self.credits.text),
-                                    self.owl.text, self.maxstud.text):
+                                    self.owl.text, int(self.maxstud.text)):
             dataManager.save()
-
+            print('holi')
     def on_pre_enter(self):
         Window.size = (393, 700)
 
@@ -167,7 +166,6 @@ class creest(Screen):
         if dataManager.createStudent(self.nameStudents.text, self.idStudents.text, float(self.papi.text),
                                      self.college.text, self.tookSurvey.text):
             dataManager.save()
-
     def on_pre_enter(self):
         Window.size = (393, 700)
 
