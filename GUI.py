@@ -17,10 +17,10 @@ class DataManager(object):
         self.matterManager = MatterManager()
 
     @staticmethod
-    def verificationName(name: str) -> Optional[str]:
+    def verificationName(name: str, mini: int = 0, maxi: int = 6) -> Optional[str]:
         if name is None:
             return None
-        if not (0 < len(name.split(' ')) < 6):
+        if not (mini < len(name.split(' ')) < maxi):
             return None
         if name.isalpha():
             return None
@@ -98,7 +98,7 @@ class DataManager(object):
             daysOk = True
         else:
             daysOk = self.verificationSchedule(days)
-        name = self.verificationName(name)
+        name = self.verificationName(name, mini=-1)
         nameOk = name is not None
         owl = self.verificationName(owl)
         owlOk = owl is not None
@@ -142,7 +142,7 @@ class cremat(Screen):
         if dataManager.createMatter(self.namematt.text, self.mattcode.text, int(self.credits.text),
                                     self.owl.text, int(self.maxstud.text)):
             dataManager.save()
-            print('holi')
+
     def on_pre_enter(self):
         Window.size = (393, 700)
 
@@ -166,6 +166,7 @@ class creest(Screen):
         if dataManager.createStudent(self.nameStudents.text, self.idStudents.text, float(self.papi.text),
                                      self.college.text, self.tookSurvey.text):
             dataManager.save()
+
     def on_pre_enter(self):
         Window.size = (393, 700)
 
