@@ -1,5 +1,5 @@
 from typing import Optional
-
+from kivy.uix.checkbox import CheckBox
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
@@ -118,10 +118,11 @@ class cremat(Screen):
     credits = ObjectProperty(None)
 
     def ChrgMatter(self):
-        print("Días:", self.days.text, "Nombre:", self.namematt.text, "Número de estudiantes:", self.numbstud.text,
-              "Número máximo de estudiantes:",
-              self.maxstud.text, "Código de la materia:", self.mattcode.text, "Profesor:", self.owl.text,
-              "Valor en créditos:", self.credits.text)
+        print("Días:", self.days.text, "Nombre:", self.namematt.text,"Número máximo de estudiantes:", self.maxstud.text,
+              "Código de la materia:", self.mattcode.text, "Profesor:", self.owl.text, "Valor en créditos:", self.credits.text)
+        if dataManager.createMatter(self.namematt.text, float(self.mattcode.text), float(self.credits.text),
+                                     self.owl.text, self.maxstud.text):
+            dataManager.save()
 
     def on_pre_enter(self):
         Window.size = (393, 700)
@@ -139,11 +140,9 @@ class creest(Screen):
     tookSurvey: ObjectProperty(None)
 
     def ChrgStud(self):
-        print("Días:", self.schedule.text, "Nombre:", self.nameStudents.text, "Número de estudiantes:",
-              self.idStudents.text,
-              "Número máximo de estudiantes:",
-              self.wishesMatters.text, "Código de la materia:", self.creditsUsed.text, "Profesor:", self.matters.text,
-              "Valor en créditos:", self.papi.text, "Valor en créditos:", self.college.text, "Valor en créditos:",
+        print("Días:", self.schedule.text, "Nombre:", self.nameStudents.text, "Número de estudiantes:", self.idStudents.text,
+              "Número máximo de estudiantes:", self.wishesMatters.text, "Código de la materia:", self.creditsUsed.text, "Profesor:",
+              self.matters.text, "Valor en créditos:", self.papi.text, "Valor en créditos:", self.college.text, "Valor en créditos:",
               self.tookSurvey.text)
         if dataManager.createStudent(self.nameStudents.text, self.idStudents.text, float(self.papi.text),
                                      self.college.text, self.tookSurvey.text):
