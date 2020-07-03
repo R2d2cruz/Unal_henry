@@ -87,6 +87,7 @@ class DataManager(object):
         papiOk = self.verificationPapi(papi)
         idOk = self.verificationId(_id)
         if nameOk and papiOk and mattersOk and wishesOk and idOk and scheduleOk:
+            print('hola')
             self.matterManager.createStudent(name, _id, papi, house, tookSurvey, value, wishesMatters=wishesMattersList,
                                              matters=mattersList, schedule=schedule)
             return True
@@ -104,9 +105,8 @@ class DataManager(object):
         owlOk = owl is not None
         idOk = self.verificationId(_id)
         if nameOk and owlOk and idOk and daysOk:
-            if dataManager.matterManager.createMatter(name, _id, value, owl, maxStu, days=days):
-                dataManager.save()
-                return True
+            dataManager.matterManager.createMatter(name, _id, value, owl, maxStu, days=days)
+            return True
         return False
 
     def save(self):
@@ -137,10 +137,11 @@ class cremat(Screen):
     credits = ObjectProperty(None)
 
     def ChrgMatter(self):
-        print("Días:", self.days.text, "Nombre:", self.namematt.text,"Número máximo de estudiantes:", self.maxstud.text,
-              "Código de la materia:", self.mattcode.text, "Profesor:", self.owl.text, "Valor en créditos:", self.credits.text)
-        if dataManager.createMatter(self.namematt.text, float(self.mattcode.text), float(self.credits.text),
-                                     self.owl.text, self.maxstud.text):
+        print("Días:", self.days.text, "Nombre:", self.namematt.text, "Número máximo de estudiantes:",
+              self.maxstud.text, "Código de la materia:", self.mattcode.text, "Profesor:", self.owl.text,
+              "Valor en créditos:", self.credits.text)
+        if dataManager.createMatter(self.namematt.text, self.mattcode.text, int(self.credits.text),
+                                    self.owl.text, self.maxstud.text):
             dataManager.save()
 
     def on_pre_enter(self):
