@@ -2,6 +2,7 @@ WindowManager:
     MainWindow:
     OptionsWindow:
     cremat:
+    cremathor:
     creest:
     edimat:
     ediest:
@@ -113,7 +114,6 @@ WindowManager:
 
 <cremat>:
     name: "CrearMat"
-    days: days
     namematt: nameMatt
     maxstud: maxStudents
     mattcode: mattcode
@@ -137,9 +137,11 @@ WindowManager:
                 font_size: 15
                 color: 1,.5,0,1
                 text: "Dias de actividad: "
-            TextInput:
-                id: days
-                multiline: False
+            Button:
+                text: "Asignar horario a la materia"
+                on_release:
+                    app.root.current = "CrearMatHor"
+                    root.manager.transition.direction = 'left'
             Label:
                 markup: True
                 font_size: 15
@@ -201,6 +203,47 @@ WindowManager:
         on_release:
             app.root.current = "Options"
             root.manager.transition.direction = 'left'
+
+<cremathor>:
+    name: "CrearMatHor"
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'assets/Options.png'
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        rows:2
+        GridLayout:
+            cols: 2
+
+        GridLayout:
+            size_hint: 0.3,0.8
+            cols:2
+            Label:
+                text:  "  "
+                font_size: 15
+                color: 1,.5,0,1
+            Button:
+                id: ChrgMatter
+                background_normal: "assets/guardar.png"
+                background_down: "assets/guardar2.png"
+                size_hint: 1,5
+                on_press: root.ChrgMatter()
+                on_release:
+                    app.root.current = "CrearMat"
+                    root.manager.transition.direction = 'left'
+    Button:
+        background_normal: "assets/atras.png"
+        background_down: "assets/atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'left'
+
 <creest>:
     name: "CrearEst"
     schedule: schedule
@@ -211,7 +254,7 @@ WindowManager:
     matters: matters
     papi:papi
     college: college
-    tookSurvey: tookSurvey
+
 
     canvas:
         Color:
@@ -294,9 +337,9 @@ WindowManager:
                 font_size: 15
                 color: 1,.5,0,1
                 text: "Realiza la encuesta: "
-            TextInput:
-                id: tookSurvey
-                multiline: False
+            CheckBox:
+                color: 0,2.56,2.56,1
+                on_active:root.tooksurvey(*args)
 
         GridLayout:
             size_hint: 0.3,0.8

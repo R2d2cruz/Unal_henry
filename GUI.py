@@ -3,7 +3,7 @@ from kivy.uix.checkbox import CheckBox
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, StringProperty, BooleanProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 from MatterManager import MatterManager
@@ -147,6 +147,11 @@ class cremat(Screen):
         Window.size = (393, 700)
 
 
+class cremathor(Screen):
+    def on_pre_enter(self):
+        Window.size = (393, 700)
+
+
 class creest(Screen):
     schedule: ObjectProperty(None)
     nameStudents: ObjectProperty(None)
@@ -156,15 +161,24 @@ class creest(Screen):
     matters: ObjectProperty(None)
     papi: ObjectProperty(None)
     college: ObjectProperty(None)
-    tookSurvey: ObjectProperty(None)
+    tookSurvey = BooleanProperty(False)
+
+    def tooksurvey(self, *args):
+        if args[1]:
+            self.tookSurvey = True
+        else:
+            self.tookSurvey = False
 
     def ChrgStud(self):
-        print("Días:", self.schedule.text, "Nombre:", self.nameStudents.text, "Número de estudiantes:", self.idStudents.text,
-              "Número máximo de estudiantes:", self.wishesMatters.text, "Código de la materia:", self.creditsUsed.text, "Profesor:",
-              self.matters.text, "Valor en créditos:", self.papi.text, "Valor en créditos:", self.college.text, "Valor en créditos:",
-              self.tookSurvey.text)
+        print("Horario:", self.schedule.text, "Nombre:", self.nameStudents.text, "Codigo del estudiante:",
+              self.idStudents.text,
+              "Materias deseadas:", self.wishesMatters.text, "Creditos usados:", self.creditsUsed.text,
+              "Materias:",
+              self.matters.text, "PAPI:", self.papi.text, "Facultad:", self.college.text,
+              "Realiza la encuesta:",
+              self.tookSurvey)
         if dataManager.createStudent(self.nameStudents.text, self.idStudents.text, float(self.papi.text),
-                                     self.college.text, self.tookSurvey.text):
+                                     self.college.text, self.tookSurvey):
             dataManager.save()
 
     def on_pre_enter(self):
