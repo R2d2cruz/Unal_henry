@@ -3,7 +3,7 @@ from kivy.uix.checkbox import CheckBox
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
-from kivy.properties import ObjectProperty, StringProperty, BooleanProperty
+from kivy.properties import ObjectProperty, StringProperty, BooleanProperty, DictProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 from MatterManager import MatterManager
@@ -148,6 +148,18 @@ class cremat(Screen):
 
 
 class cremathor(Screen):
+
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.horario = {'lunes': [], 'martes': [], 'miercoles': [], 'jueves': [], 'viernes': [], 'sabado': []}
+
+    def presshor(self, day, hour):
+        if hour not in self.horario.get(day):
+            self.horario[day].append(hour)
+        else:
+            self.horario[day].remove(hour)
+        print(self.horario)
+
     def on_pre_enter(self):
         Window.size = (393, 700)
 
