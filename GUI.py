@@ -151,7 +151,7 @@ class cremathor(Screen):
 
     def __init__(self, **kw):
         super().__init__(**kw)
-        self.horario = {'lunes': [], 'martes': [], 'miercoles': [], 'jueves': [], 'viernes': [], 'sabado': []}
+        self.horario = {'lunes': [], 'martes': [], 'miercoles': [], 'jueves': [], 'viernes': []}
 
     def presshor(self, day, hour):
         if hour not in self.horario.get(day):
