@@ -14,6 +14,16 @@ ValidHours: list = list()
 class DataManager(object):
     def __init__(self):
         self.matterManager = MatterManager()
+        self.__scheduleMatterCache: dict = None
+
+    @property
+    def schedule(self):
+        return self.__scheduleMatterCache
+
+    @schedule.setter
+    def schedule(self, schedule: dict):
+        if self.verificationSchedule(schedule) or schedule is None:
+            self.__scheduleMatterCache = schedule
 
     @staticmethod
     def verificationName(name: str, mini: int = 0, maxi: int = 6) -> Optional[str]:
@@ -47,14 +57,28 @@ class DataManager(object):
         return True
 
     @staticmethod
-    def verificationSchedule(days: dict) -> bool:
-        for day in days.keys():
+    def verificationSchedule(schedule: dict) -> bool:
+        for day in schedule.keys():
             if day not in ValidDays:
                 return False
-            for hour in days.get(day).keys():
+            for hour in schedule.get(day).keys():
                 if hour not in ValidHours:
                     return False
         return True
+
+    def insertHourInMatterSchedule(self, day: str, hour: str) -> bool:
+        if day in ValidDays:
+            if hour in ValidHours:
+                self.__scheduleMatterCache[day].append(hour)
+                return True
+        return False
+
+    def deleteHourInMatterSchedule(self, day: str, hour: str) -> bool:
+        if day in ValidDays:
+            if hour in ValidHours:
+                self.__scheduleMatterCache[day].remuve(hour)
+                return True
+        return False
 
     def verificationMatters(self, matters: list) -> bool:
         for matterId in matters:
@@ -104,6 +128,7 @@ class DataManager(object):
         idOk = self.verificationId(_id)
         if nameOk and owlOk and idOk and daysOk:
             dataManager.matterManager.createMatter(name, _id, value, owl, maxStu, days=days)
+            self.__scheduleMatterCache = None
             return True
         return False
 
@@ -139,7 +164,7 @@ class cremat(Screen):
               self.maxstud.text, "Código de la materia:", self.mattcode.text, "Profesor:", self.owl.text,
               "Valor en créditos:", self.credits.text)
         if dataManager.createMatter(self.namematt.text, self.mattcode.text, int(self.credits.text),
-                                    self.owl.text, int(self.maxstud.text)):
+                                    self.owl.text, int(self.maxstud.text), days=dataManager.schedule):
             dataManager.save()
 
     def on_pre_enter(self):
@@ -150,13 +175,13 @@ class cremathor(Screen):
 
     def __init__(self, **kw):
         super().__init__(**kw)
-        self.horario = {'lunes': [], 'martes': [], 'miercoles': [], 'jueves': [], 'viernes': []}
+        dataManager.schedule = {'lunes': [], 'martes': [], 'miercoles': [], 'jueves': [], 'viernes': []}
 
     def presshor(self, day, hour):
-        if hour not in self.horario.get(day):
-            self.horario[day].append(hour)
+        if hour not in dataManager.schedule.get(day):
+            dataManager.insertHourInMatterSchedule(day, hour)
         else:
-            self.horario[day].remove(hour)
+            dataManager.deleteHourInMatterSchedule(day, hour)
         print(self.horario)
 #necesito lleva este self.horario al final de la línea 145
 
