@@ -1,9 +1,8 @@
 from typing import Optional
-from kivy.uix.checkbox import CheckBox
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
-from kivy.properties import ObjectProperty, StringProperty, BooleanProperty, DictProperty
+from kivy.properties import ObjectProperty, BooleanProperty, DictProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 from MatterManager import MatterManager
@@ -159,6 +158,7 @@ class cremathor(Screen):
         else:
             self.horario[day].remove(hour)
         print(self.horario)
+#necesito lleva este self.horario al final de la línea 145
 
     def on_pre_enter(self):
         Window.size = (393, 700)
