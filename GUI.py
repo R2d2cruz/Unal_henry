@@ -15,6 +15,7 @@ class DataManager(object):
     def __init__(self):
         self.matterManager = MatterManager()
         self.__scheduleMatterCache: dict = None
+        self.scheduleReset()
 
     @property
     def schedule(self):
@@ -66,6 +67,13 @@ class DataManager(object):
                     return False
         return True
 
+    def hourInSchedule(self, day: str, hour: str):
+        if day in self.schedule.keys():
+            if hour not in self.schedule.get(day):
+                self.insertHourInMatterSchedule(day, hour)
+            else:
+                self.deleteHourInMatterSchedule(day, hour)
+
     def insertHourInMatterSchedule(self, day: str, hour: str) -> bool:
         if day in ValidDays:
             if hour in ValidHours:
@@ -76,7 +84,7 @@ class DataManager(object):
     def deleteHourInMatterSchedule(self, day: str, hour: str) -> bool:
         if day in ValidDays:
             if hour in ValidHours:
-                self.__scheduleMatterCache[day].remuve(hour)
+                self.__scheduleMatterCache[day].remove(hour)
                 return True
         return False
 
@@ -135,6 +143,11 @@ class DataManager(object):
     def save(self):
         self.matterManager.saveAll()
 
+    def scheduleReset(self):
+        self.__scheduleMatterCache = {}
+        for day in ValidDays:
+            self.__scheduleMatterCache[day] = []
+
 
 # noinspection PyTypeChecker
 dataManager: DataManager = None
@@ -160,6 +173,7 @@ class cremat(Screen):
     credits = ObjectProperty(None)
 
     def ChrgMatter(self):
+        dataManager.scheduleReset()
         print("Días:", self.days.text, "Nombre:", self.namematt.text, "Número máximo de estudiantes:",
               self.maxstud.text, "Código de la materia:", self.mattcode.text, "Profesor:", self.owl.text,
               "Valor en créditos:", self.credits.text)
@@ -175,14 +189,12 @@ class cremathor(Screen):
 
     def __init__(self, **kw):
         super().__init__(**kw)
-        dataManager.schedule = {'lunes': [], 'martes': [], 'miercoles': [], 'jueves': [], 'viernes': []}
+        if dataManager is not None:
+            dataManager.schedule = {'lunes': [], 'martes': [], 'miercoles': [], 'jueves': [], 'viernes': []}
 
-    def presshor(self, day, hour):
-        if hour not in dataManager.schedule.get(day):
-            dataManager.insertHourInMatterSchedule(day, hour)
-        else:
-            dataManager.deleteHourInMatterSchedule(day, hour)
-        print(self.horario)
+    def presshor(self, day: str, hour: str):
+        dataManager.hourInSchedule(day, hour)
+        print(dataManager.schedule)
 #necesito lleva este self.horario al final de la línea 145
 
     def on_pre_enter(self):
@@ -255,13 +267,13 @@ class Constructor:
     def __init__(self):
         self.kv = Builder.load_file("GUI.kv")
         self.gui = GUI(self.kv)
-        global dataManager
-        dataManager = DataManager()
         global ValidDays
-        ValidDays = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
+        ValidDays = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes']
         global ValidHours
         for i in range(7, 23):
             ValidHours.append(str(i) + ':00')
+        global dataManager
+        dataManager = DataManager()
 
     def run(self):
         self.gui.run()
