@@ -28,5 +28,138 @@
         "owl": "Benito",
         "value": 4,
         "students": []
+    },
+    "0005": {
+        "days": {
+            "Lunes": [
+                "7:00"
+            ],
+            "Martes": [
+                "14:00"
+            ],
+            "Miercoles": [],
+            "Jueves": [],
+            "Viernes": [
+                "11:00"
+            ]
+        },
+        "numStudents": 0,
+        "maxStudents": 22,
+        "name": "Ecuaciones Diferenciales",
+        "owl": "Arnold Connor Fox",
+        "value": 3,
+        "students": []
+    },
+    "0006": {
+        "days": {
+            "Lunes": [
+                "9:00"
+            ],
+            "Martes": [],
+            "Miercoles": [
+                "17:00"
+            ],
+            "Jueves": [],
+            "Viernes": [
+                "19:00",
+                "9:00",
+                "18:00"
+            ]
+        },
+        "numStudents": 0,
+        "maxStudents": 28,
+        "name": "Electromagnetismo",
+        "owl": "Arnold Connor Doblas",
+        "value": 6,
+        "students": []
+    },
+    "0007": {
+        "days": {
+            "Lunes": [],
+            "Martes": [
+                "9:00"
+            ],
+            "Miercoles": [
+                "9:00",
+                "20:00",
+                "12:00"
+            ],
+            "Jueves": [],
+            "Viernes": [
+                "11:00"
+            ]
+        },
+        "numStudents": 0,
+        "maxStudents": 32,
+        "name": "Mediciones Electromagneticas",
+        "owl": "Arnold Connor Croos",
+        "value": 5,
+        "students": []
+    },
+    "0008": {
+        "days": {
+            "Lunes": [
+                "8:00"
+            ],
+            "Martes": [
+                "12:00",
+                "19:00"
+            ],
+            "Miercoles": [],
+            "Jueves": [],
+            "Viernes": []
+        },
+        "numStudents": 0,
+        "maxStudents": 35,
+        "name": "Probabilidad",
+        "owl": "Arnold Connor Junior",
+        "value": 3,
+        "students": []
+    },
+    "0009": {
+        "days": {
+            "Lunes": [],
+            "Martes": [
+                "12:00"
+            ],
+            "Miercoles": [
+                "15:00"
+            ],
+            "Jueves": [
+                "18:00"
+            ],
+            "Viernes": [
+                "19:00"
+            ]
+        },
+        "numStudents": 0,
+        "maxStudents": 21,
+        "name": "Metodos numericos",
+        "owl": "Arnold Craig Fox",
+        "value": 4,
+        "students": []
+    },
+    "0010": {
+        "days": {
+            "Lunes": [],
+            "Martes": [
+                "13:00"
+            ],
+            "Miercoles": [
+                "10:00"
+            ],
+            "Jueves": [
+                "20:00"
+            ],
+            "Viernes": [
+                "20:00"
+            ]
+        },
+        "numStudents": 0,
+        "maxStudents": 17,
+        "name": "Calculo Integral",
+        "owl": "Arnold Craig Doblas",
+        "value": 4,
+        "students": []
     }
 }
