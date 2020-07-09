@@ -9,6 +9,7 @@ Authors:
         Henry Salomón Suárez López - 1030595912
 
 """
+from typing import Optional
 
 from Student import Student
 from Matter import Matter
@@ -76,6 +77,11 @@ class MatterManager:
             if studentName == name:
                 students.append(student)
         return students
+
+    def matterById(self, _id: str) -> Optional[Matter]:
+        if _id in self.__matters and self.__matters.get(_id) is not None:
+            return self.__matters.get(_id)
+        return None
 
     # crea un nuevo estudiante
     def createStudent(self, name: str, _id: str, papi: float, house: str, tookSurvey: bool, value: int = 0,
