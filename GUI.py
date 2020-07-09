@@ -2,7 +2,7 @@ from typing import Optional
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
-from kivy.properties import ObjectProperty, BooleanProperty, DictProperty
+from kivy.properties import ObjectProperty, BooleanProperty, ListProperty, StringProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 from MatterManager import MatterManager
@@ -195,7 +195,6 @@ class cremathor(Screen):
     def presshor(self, day: str, hour: str):
         dataManager.hourInSchedule(day, hour)
         print(dataManager.schedule)
-#necesito lleva este self.horario al final de la línea 145
 
     def on_pre_enter(self):
         Window.size = (393, 700)
@@ -239,12 +238,16 @@ class edimat(Screen):
         Window.size = (393, 700)
 
 
-class ediest(Screen):
+class ediest(BoxLayout):
     def on_pre_enter(self):
-        Window.size = (393, 700)
+        Window.size = (700, 700)
 
 
 class vermat(Screen):
+    def vermates(self):
+        self.lbl.text = str(dataManager.matterManager.nameMatters)
+        self.lbl2.text = str(dataManager.matterManager.mattersCodes)
+
     def on_pre_enter(self):
         Window.size = (393, 700)
 
