@@ -867,11 +867,6 @@
                 "name": "Electromagnetismo",
                 "isInscribe": "p",
                 "priority": 3
-            },
-            "0007": {
-                "name": "Mediciones Electromagneticas",
-                "isInscribe": "p",
-                "priority": 3
             }
         },
         "credits": 0,
@@ -1606,16 +1601,6 @@
                 "name": "Ecuaciones Diferenciales",
                 "isInscribe": "p",
                 "priority": 2
-            },
-            "0006": {
-                "name": "Electromagnetismo",
-                "isInscribe": "p",
-                "priority": 4
-            },
-            "0007": {
-                "name": "Mediciones Electromagneticas",
-                "isInscribe": "p",
-                "priority": 2
             }
         },
         "credits": 0,
@@ -1693,17 +1678,12 @@
             "0000": {
                 "name": "Cuasimodo",
                 "isInscribe": "p",
-                "priority": 7
+                "priority": 5
             },
             "00003": {
                 "name": "Calculo Diferencial",
                 "isInscribe": "p",
                 "priority": 3
-            },
-            "0005": {
-                "name": "Ecuaciones Diferenciales",
-                "isInscribe": "p",
-                "priority": 9
             },
             "0007": {
                 "name": "Mediciones Electromagneticas",
@@ -1879,22 +1859,17 @@
             "0000": {
                 "name": "Cuasimodo",
                 "isInscribe": "p",
-                "priority": 10
+                "priority": 5
             },
             "00003": {
                 "name": "Calculo Diferencial",
                 "isInscribe": "p",
-                "priority": 7
+                "priority": 4
             },
             "0005": {
                 "name": "Ecuaciones Diferenciales",
                 "isInscribe": "p",
-                "priority": 9
-            },
-            "0007": {
-                "name": "Mediciones Electromagneticas",
-                "isInscribe": "p",
-                "priority": 9
+                "priority": 2
             }
         },
         "credits": 0,
