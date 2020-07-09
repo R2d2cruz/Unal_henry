@@ -23,7 +23,7 @@ class Generator:
 
     def run(self):
         self.createMatters(5)
-        self.createStudents(13)
+        self.createStudents(15)
         self.matterManager.saveAll()
 
     def createNames(self) -> dict:
@@ -37,7 +37,7 @@ class Generator:
 
     def createMatters(self, nextId: int):
         for matter in self.mattersNames:
-            _id = nextId
+            _id = self.getIdStr(nextId)
             nextId += 1
             value = randint(2, 6)
             hours = value
@@ -45,7 +45,7 @@ class Generator:
             owl = self.choiceRandomPerson()
             self.assignHours(schedule, hours)
             maxStu = randint(15, 40)
-            self.matterManager.createMatter(matter, str(_id), value, owl, maxStu, schedule)
+            self.matterManager.createMatter(matter, _id, value, owl, maxStu, schedule)
 
     def createStudents(self, nextId: int):
         n = self.getNumberNotUsesNames()
@@ -58,20 +58,15 @@ class Generator:
             insanity = randint(12, 21)
             wishes = {}
             while insanity > 3:
-                print(self.matterManager.mattersCodes)
                 for matterCode in self.matterManager.mattersCodes:
-                    print(matterCode, end='')
                     if matterCode not in wishes.keys():
                         matter: Matter = self.matterManager.matterById(matterCode)
-                        print(matter.name, insanity)
                         if matter is not None and insanity >= matter.value:
                             insanity -= matter.value
                             wishes[matterCode] = randint(1, 10)
                             break
-                print('==========')
             self.matterManager.createStudent(studentName, studentId, papi, house, tookSurvey, wishesMatters=wishes)
-            print(n)
-            n -= 1
+            nextId += 1
 
     def createEmptySchedule(self) -> dict:
         schedule = {}
@@ -103,7 +98,7 @@ class Generator:
     @staticmethod
     def getIdStr(_id: int) -> str:
         strId = str(_id)
-        newId = ((len(strId) - 4) * '0') + strId
+        newId = ((4 - len(strId)) * '0') + strId
         return newId
 
 
