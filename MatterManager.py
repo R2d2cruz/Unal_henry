@@ -40,11 +40,8 @@ class MatterManager:
             mattersName.append(self.__matters.get(matter).name)
         return mattersName
 
-    # aqui va el algoritmo de organizacion de horario
     def orgSchedule(self):
-        # idea
         # obtiene lista de tuplas de papas y código de studiantes ordenadas de mayor a menor
-        # orderedStudents = []
         studentsQueue = PriorityQueue()
         for student in self.students:
             studentsQueue.put((self.__students.get(student).priority, student))
@@ -61,9 +58,9 @@ class MatterManager:
                 matter: Matter = self.__matters.get(matterId)
                 if matter.vacancy() and student.addMatter(matter):
                     matter.addStudent(studentId)
-                    print("La materia fue inscrita")
+                    print("El estudiante", studentId,"inscribió la materia", matterId)
                 else:
-                    print("La materia no pudo ser inscrita :(")
+                    print("El estudiante", studentId,"no pudo inscribió la materia", matterId,"porque el curso se encuentra lleno")
 
     def studentById(self, _id: str) -> Student:
         return self.__students.get(_id)
