@@ -315,14 +315,16 @@ class vermat(Screen):
 class verest(Screen):
 
     def verestu(self):
-        self.lbl.text = str(Student.name)
-        self.lbl2.text = str(Student.Id)
+        self.lbl.text = str(dataManager.matterManager.students)
+        self.lbl2.text = str(dataManager.matterManager.students)
 
     def on_pre_enter(self):
-        Window.size = (393, 700)
+        Window.size = (700, 700)
 
 
 class crearhor(Screen):
+    def iniciar(self):
+        dataManager.matterManager.orgSchedule()
     def on_pre_enter(self):
         Window.size = (393, 700)
 
