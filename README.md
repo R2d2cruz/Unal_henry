@@ -16,11 +16,11 @@ Esta versión entrega las siguientes funcionalidades:
 
 Para su uso sólo se requiere del uso del archivo msi para la instalación y de tener en cuenta los siguientes aspectos:
 
--Para ingresar una materia tener presente que lleve en su nombre dos palabras así como el nombre del profesor, asigne el máximo de estudiantes, el código de la materia y el valor en creditos con números enteros.
--Para ingresar un estudiante asigne por lo menos dos palabras en sus nombres, el código de estudiante, los créditos usados y la facultad (en esta actualización sólo (007) Ciencias) en números enteros. Para ingresar las materias deseadas escribir los códigos separados por un espacio y el Papi como un decimal (usando el punto decimal y no una coma).
--Para editar un estudiante consulte todos los estudiantes y copie el código del respectivo, oprima atrás y llene todos los espacios nuevamente; TODOS, ya que algún espacio en blanco reemplaza el valor antes guardado.
--Para editar una materia consulte todas las materias y copie el código de la respectiva, oprima atrás y llene todos los espacios nuevamente; TODOS, ya que algún espacio en blanco reemplaza el valor antes guardado.
--SOLAMENTE AL TENER TODAS LAS MATERIAS Y ESTUDIANTES HACER USO DEL CREAR HORARIO
+- Para ingresar una materia tener presente que lleve en su nombre dos palabras así como el nombre del profesor, asigne el máximo de estudiantes, el código de la materia y el valor en creditos con números enteros.
+- Para ingresar un estudiante asigne por lo menos dos palabras en sus nombres, el código de estudiante, los créditos usados y la facultad (en esta actualización sólo (007) Ciencias) en números enteros. Para ingresar las materias deseadas escribir los códigos separados por un espacio y el Papi como un decimal (usando el punto decimal y no una coma).
+- Para editar un estudiante consulte todos los estudiantes y copie el código del respectivo, oprima atrás y llene todos los espacios nuevamente; TODOS, ya que algún espacio en blanco reemplaza el valor antes guardado.
+- Para editar una materia consulte todas las materias y copie el código de la respectiva, oprima atrás y llene todos los espacios nuevamente; TODOS, ya que algún espacio en blanco reemplaza el valor antes guardado.
+- SOLAMENTE AL TENER TODAS LAS MATERIAS Y ESTUDIANTES HACER USO DEL CREAR HORARIO
 
 Se espera hacer una actualización para suprimir tantas limitaciones.
 
