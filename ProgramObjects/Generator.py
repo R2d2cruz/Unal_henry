@@ -1,6 +1,6 @@
 from random import *
-from MatterManager import MatterManager
-from Matter import Matter
+from ProgramObjects.MatterManager import MatterManager
+from ProgramObjects.Matter import Matter
 
 
 class Generator:

@@ -10,7 +10,7 @@ Authors:
 
 """
 
-from MatterManager import MatterManager
+from ProgramObjects.MatterManager import MatterManager
 
 Exit = 'exit'
 printStu = 'printStu'

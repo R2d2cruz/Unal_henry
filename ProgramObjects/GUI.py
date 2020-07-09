@@ -2,12 +2,10 @@ from typing import Optional
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
-from kivy.properties import ObjectProperty, BooleanProperty, ListProperty, StringProperty
+from kivy.properties import ObjectProperty, BooleanProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.boxlayout import BoxLayout
 
-from MatterManager import MatterManager
-from Student import Student
+from ProgramObjects.MatterManager import MatterManager
 
 ValidDays: list = list()
 ValidHours: list = list()
@@ -335,7 +333,7 @@ class WindowManager(ScreenManager):
 
 class Constructor:
     def __init__(self):
-        self.kv = Builder.load_file("GUI.kv")
+        self.kv = Builder.load_file("ProgramObjects/GUI.kv")
         self.gui = GUI(self.kv)
         global ValidDays
         ValidDays = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes']

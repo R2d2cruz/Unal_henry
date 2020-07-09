@@ -1,10 +1,10 @@
-from VisualInterface import VisualInterface
+from ProgramObjects.VisualInterface import VisualInterface
 
 switch = False
 if switch:
     visual = VisualInterface()
     visual.update()
 else:
-    from GUI import Constructor
+    from ProgramObjects.GUI import Constructor
     constructor = Constructor()
     constructor.run()

@@ -11,15 +11,15 @@ Authors:
 """
 from typing import Optional
 
-from Student import Student
-from Matter import Matter
-from ReadDataBase import ReadDataBase
+from ProgramObjects.Student import Student
+from ProgramObjects.Matter import Matter
+from ProgramObjects.ReadDataBase import ReadDataBase
 from queue import PriorityQueue
 
 
 class MatterManager:
     def __init__(self):
-        self.__reader = ReadDataBase()
+        self.__reader = ReadDataBase(directory='ProgramObjects/dataBase/')
         self.__students = {}
         self.__matters = {}
         self.createStudents()
