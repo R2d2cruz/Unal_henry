@@ -11,13 +11,14 @@
 import cx_Freeze
 
 executables = [
-    cx_Freeze.Executable("__main__.py")
+    cx_Freeze.Executable('__main__.py')
 ]
 
 cx_Freeze.setup(
     name='Horarios UNAL',
     version='1.0.0',
-    options={"build_exe": {"packages": ["pyqueue", "kivy", "grid"], "include_files": [
+    options={'build_exe': {'packages': [],
+                           'include_files': [
         'ProgramObjects/'
     ]}},
     executables=executables
