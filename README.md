@@ -21,6 +21,7 @@ Para su uso sólo se requiere del uso del archivo msi para la instalación y de 
 - Para editar un estudiante consulte todos los estudiantes y copie el código del respectivo, oprima atrás y llene todos los espacios nuevamente; TODOS, ya que algún espacio en blanco reemplaza el valor antes guardado.
 - Para editar una materia consulte todas las materias y copie el código de la respectiva, oprima atrás y llene todos los espacios nuevamente; TODOS, ya que algún espacio en blanco reemplaza el valor antes guardado.
 - SOLAMENTE AL TENER TODAS LAS MATERIAS Y ESTUDIANTES HACER USO DEL CREAR HORARIO
+- Link de descarga del instalador para Windows : https://drive.google.com/file/d/1x_oJ901JM5cPRr6xABH9mpxxQZ-cHFMp/view?usp=sharing
 
 Se espera hacer una actualización para suprimir tantas limitaciones.
 
