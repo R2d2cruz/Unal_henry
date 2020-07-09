@@ -5,6 +5,7 @@ WindowManager:
     cremathor:
     creest:
     edimat:
+    cremathor2:
     ediest:
     vermat:
     verest:
@@ -88,7 +89,7 @@ WindowManager:
     Button:
         background_normal: "assets/ch.png"
         background_down: "assets/ch2.png"
-        pos: (100,-10)
+        pos: (100,100)
         size_hint: 0.5, 0.4
         on_release:
             app.root.current = "CrearHor"
@@ -480,7 +481,7 @@ WindowManager:
     GridLayout:
         rows:2
         GridLayout:
-            cols: 3
+            cols: 2
             Label:
                 markup: True
                 font_size: 15
@@ -489,7 +490,7 @@ WindowManager:
             Button:
                 text: "Asignar horario a la materia"
                 on_release:
-                    app.root.current = "CrearMatHor"
+                    app.root.current = "CrearMatHor2"
                     root.manager.transition.direction = 'left'
             Label:
                 markup: True
@@ -546,7 +547,7 @@ WindowManager:
     Button:
         background_normal: "assets/vm.png"
         background_down: "assets/vm2.png"
-        pos: (20,110)
+        pos: (20,60)
         size_hint: 0.5, 0.4
         on_release:
             app.root.current = "VerMat"
@@ -560,8 +561,8 @@ WindowManager:
             app.root.current = "Options"
             root.manager.transition.direction = 'left'
 
-<ediest>:
-    name: "EdiEst"
+<cremathor2>:
+    name: "CrearMatHor2"
 
     canvas:
         Color:
@@ -570,10 +571,273 @@ WindowManager:
             source: 'assets/Options.png'
             pos: self.pos
             size: self.size
+    GridLayout:
+        rows:2
+        GridLayout:
+            cols: 6
+            Label:
+                text: "Horas "
+                font_size: 15
+                color: 1,.5,0,1
+            Label:
+                text: "Lunes "
+                font_size: 15
+                color: 1,.5,0,1
+            Label:
+                text: "Martes "
+                font_size: 15
+                color: 1,.5,0,1
+            Label:
+                text: "Miercoles "
+                font_size: 15
+                color: 1,.5,0,1
+            Label:
+                text: "Jueves "
+                font_size: 15
+                color: 1,.5,0,1
+            Label:
+                text: "Viernes "
+                font_size: 15
+                color: 1,.5,0,1
+            Label:
+                text: "7 a 9"
+                font_size: 15
+                color: 1,.5,0,1
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Lunes", "7:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Martes", "7:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Miercoles", "7:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Jueves", "7:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Viernes", "7:00")
+            Label:
+                text: "9 a 11"
+                font_size: 15
+                color: 1,.5,0,1
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Lunes", "9:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Martes", "9:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Miercoles", "9:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Jueves", "9:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Viernes", "9:00")
+            Label:
+                text: "11 a 1"
+                font_size: 15
+                color: 1,.5,0,1
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Lunes", "11:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Martes", "11:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Miercoles", "11:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Jueves", "11:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Viernes", "11:00")
+            Label:
+                text: "2 a 4"
+                font_size: 15
+                color: 1,.5,0,1
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Lunes", "14:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Martes", "14:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Miercoles", "14:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Jueves", "14:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Viernes", "14:00")
+            Label:
+                text: "4 a 6"
+                font_size: 15
+                color: 1,.5,0,1
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Lunes", "16:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Martes", "16:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Miercoles", "16:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Jueves", "16:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Viernes", "16:00")
+            Label:
+                text: "6 a 8"
+                font_size: 15
+                color: 1,.5,0,1
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Lunes", "18:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Martes", "18:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Miercoles", "18:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Jueves", "18:00")
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.presshor("Viernes", "18:00")
+        GridLayout:
+            size_hint: 0.3,0.8
+            cols:2
+
+            Label:
+                text:  "  "
+                font_size: 15
+                color: 1,.5,0,1
+            Button:
+                id: ChrgMatter
+                background_normal: "assets/guardar.png"
+                background_down: "assets/guardar2.png"
+                size_hint: 1,5
+                on_release:
+                    app.root.current = "EditMat"
+                    root.manager.transition.direction = 'right'
+    Button:
+        background_normal: "assets/atras.png"
+        background_down: "assets/atras2.png"
+        pos: (0,-30)
+        size_hint: 0.4, 0.3
+        on_release:
+            app.root.current = "Options"
+            root.manager.transition.direction = 'right'
+
+<ediest>:
+    name: "EdiEst"
+    nameStudents: nameStudents
+    idStudents: idStudents
+    wishesMatters: wishesMatters
+    creditsUsed: creditsUsed
+    papi:papi
+    college: college
+
+
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            source: 'assets/Options.png'
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        rows:2
+        GridLayout:
+            cols: 2
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Nombre del estudiante: "
+            TextInput:
+                id: nameStudents
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Codigo de estudiante: "
+            TextInput:
+                id: idStudents
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Materias deseadas: "
+            TextInput:
+                id: wishesMatters
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Creditos usados: "
+            TextInput:
+                id: creditsUsed
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "PAPI: "
+            TextInput:
+                id: papi
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Facultad: "
+            TextInput:
+                id: college
+                multiline: False
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Realiza la encuesta: "
+            CheckBox:
+                color: 0,0,0,2
+                on_active:root.tooksurvey(*args)
+
+        GridLayout:
+            size_hint: 0.3,0.8
+            cols:2
+            Button:
+                id: ChrgMatter
+                background_normal: "assets/guardar.png"
+                background_down: "assets/guardar2.png"
+                size_hint: 1,5
+                on_press: root.ChrgStud()
+                on_release:
+                    app.root.current = "CrearEst"
+                    root.manager.transition.direction = 'left'
+            Label:
+                text:  "  "
+                font_size: 15
+                color: 1,.5,0,1
+
     Button:
         background_normal: "assets/ve.png"
         background_down: "assets/ve2.png"
-        pos: (180,110)
+        pos: (180,60)
         size_hint: 0.5, 0.4
         on_release:
             app.root.current = "VerEst"
@@ -607,7 +871,7 @@ WindowManager:
                 markup: True
                 font_size: 15
                 color: 1,.5,0,1
-                text: "Mostrar Lista"
+                text: "Mostrar Lista de materias"
                 on_press:
                     root.vermates()
             Label:
@@ -622,18 +886,19 @@ WindowManager:
                 color: 1,.5,0,1
                 id: lista2
                 text: ' '
-
     Button:
         background_normal: "assets/atras.png"
         background_down: "assets/atras2.png"
         pos: (0,-30)
         size_hint: 0.4, 0.3
         on_release:
-            app.root.current = "Options"
+            app.root.current = "EdiMat"
             root.manager.transition.direction = 'left'
 
 <verest>:
     name: "VerEst"
+    lbl: lista
+    lbl2: lista2
 
     canvas:
         Color:
@@ -642,13 +907,36 @@ WindowManager:
             source: 'assets/Options.png'
             pos: self.pos
             size: self.size
+    GridLayout:
+        cols:2
+        GridLayout:
+            cols: 1
+            Button:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                text: "Mostrar Lista de estudiantes"
+                on_press:
+                    root.verestu()
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                id: lista
+                text: ' '
+            Label:
+                markup: True
+                font_size: 15
+                color: 1,.5,0,1
+                id: lista2
+                text: ' '
     Button:
         background_normal: "assets/atras.png"
         background_down: "assets/atras2.png"
         pos: (0,-30)
         size_hint: 0.4, 0.3
         on_release:
-            app.root.current = "Options"
+            app.root.current = "EdiEst"
             root.manager.transition.direction = 'left'
 
 <crearhor>:

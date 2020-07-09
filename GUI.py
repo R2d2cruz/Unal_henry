@@ -4,8 +4,10 @@ from kivy.core.window import Window
 from kivy.lang.builder import Builder
 from kivy.properties import ObjectProperty, BooleanProperty, ListProperty, StringProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.boxlayout import BoxLayout
 
 from MatterManager import MatterManager
+from Student import Student
 
 ValidDays: list = list()
 ValidHours: list = list()
@@ -234,25 +236,88 @@ class creest(Screen):
 
 
 class edimat(Screen):
+    days = ObjectProperty(None)
+    namematt = ObjectProperty(None)
+    maxstud = ObjectProperty(None)
+    mattcode = ObjectProperty(None)
+    owl = ObjectProperty(None)
+    credits = ObjectProperty(None)
+
+    def ChrgMatter(self):
+        dataManager.scheduleReset()
+        print("Días:", self.days.text, "Nombre:", self.namematt.text, "Número máximo de estudiantes:",
+              self.maxstud.text, "Código de la materia:", self.mattcode.text, "Profesor:", self.owl.text,
+              "Valor en créditos:", self.credits.text)
+        if dataManager.createMatter(self.namematt.text, self.mattcode.text, int(self.credits.text),
+                                    self.owl.text, int(self.maxstud.text), days=dataManager.schedule):
+            dataManager.save()
+
     def on_pre_enter(self):
         Window.size = (393, 700)
 
 
-class ediest(BoxLayout):
+class cremathor2(Screen):
+
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        if dataManager is not None:
+            dataManager.schedule = {'lunes': [], 'martes': [], 'miercoles': [], 'jueves': [], 'viernes': []}
+
+    def presshor(self, day: str, hour: str):
+        dataManager.hourInSchedule(day, hour)
+        print(dataManager.schedule)
+
     def on_pre_enter(self):
-        Window.size = (700, 700)
+        Window.size = (393, 700)
+
+
+class ediest(Screen):
+    schedule: ObjectProperty(None)
+    nameStudents: ObjectProperty(None)
+    idStudents: ObjectProperty(None)
+    wishesMatters: ObjectProperty(None)
+    creditsUsed: ObjectProperty(None)
+    matters: ObjectProperty(None)
+    papi: ObjectProperty(None)
+    college: ObjectProperty(None)
+    tookSurvey = BooleanProperty(False)
+
+    def tooksurvey(self, *args):
+        if args[1]:
+            self.tookSurvey = True
+        else:
+            self.tookSurvey = False
+
+    def ChrgStud(self):
+        print("Horario:", self.schedule.text, "Nombre:", self.nameStudents.text, "Codigo del estudiante:",
+              self.idStudents.text,
+              "Materias deseadas:", self.wishesMatters.text, "Creditos usados:", self.creditsUsed.text,
+              "Materias:",
+              self.matters.text, "PAPI:", self.papi.text, "Facultad:", self.college.text,
+              "Realiza la encuesta:",
+              self.tookSurvey)
+        if dataManager.createStudent(self.nameStudents.text, self.idStudents.text, float(self.papi.text),
+                                     self.college.text, self.tookSurvey):
+            dataManager.save()
+    def on_pre_enter(self):
+        Window.size = (393, 700)
 
 
 class vermat(Screen):
+
     def vermates(self):
         self.lbl.text = str(dataManager.matterManager.nameMatters)
         self.lbl2.text = str(dataManager.matterManager.mattersCodes)
-
     def on_pre_enter(self):
         Window.size = (393, 700)
 
 
 class verest(Screen):
+
+    def verestu(self):
+        self.lbl.text = str(Student.name)
+        self.lbl2.text = str(Student.Id)
+
     def on_pre_enter(self):
         Window.size = (393, 700)
 
