@@ -6,7 +6,7 @@ from Matter import Matter
 class Generator:
 
     firstName = ['Arnold', 'Harrison', 'Sara', 'Daniel', 'Aaron']
-    secondName = ['Connor', 'Craig', 'Ford', 'Schwarzenegger', 'MacLaud']
+    secondName = ['Connor', 'Craig', 'Ford', 'Schwarzenegger']
     thirdName = ['Fox', 'Doblas', 'Croos', 'Junior']
 
     mattersNames = ['Ecuaciones Diferenciales', 'Electromagnetismo', 'Mediciones Electromagneticas', 'Probabilidad',
@@ -57,15 +57,18 @@ class Generator:
             tookSurvey = choice([True, True, False])
             insanity = randint(12, 21)
             wishes = {}
-            while insanity > 1:
+            while insanity > 3:
+                print(self.matterManager.mattersCodes)
                 for matterCode in self.matterManager.mattersCodes:
+                    print(matterCode, end='')
                     if matterCode not in wishes.keys():
                         matter: Matter = self.matterManager.matterById(matterCode)
+                        print(matter.name, insanity)
                         if matter is not None and insanity >= matter.value:
                             insanity -= matter.value
+                            wishes[matterCode] = randint(1, 10)
                             break
-                    print('Ñaca Ñaca')
-                wishes[matterCode] = randint(1, 10)
+                print('==========')
             self.matterManager.createStudent(studentName, studentId, papi, house, tookSurvey, wishesMatters=wishes)
             print(n)
             n -= 1
