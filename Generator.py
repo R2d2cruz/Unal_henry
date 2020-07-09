@@ -1,5 +1,6 @@
 from random import *
 from MatterManager import MatterManager
+from Matter import Matter
 
 
 class Generator:
@@ -23,6 +24,7 @@ class Generator:
     def run(self):
         self.createMatters(5)
         self.createStudents(13)
+        self.matterManager.saveAll()
 
     def createNames(self) -> dict:
         names = {}
@@ -46,6 +48,7 @@ class Generator:
             self.matterManager.createMatter(matter, str(_id), value, owl, maxStu, schedule)
 
     def createStudents(self, nextId: int):
+        n = self.getNumberNotUsesNames()
         while self.getNumberNotUsesNames() > 0:
             studentName = self.choiceRandomPerson()
             studentId = self.getIdStr(nextId)
@@ -55,10 +58,17 @@ class Generator:
             insanity = randint(12, 21)
             wishes = {}
             while insanity > 1:
-                while True:
-                    matterCode = choice(self.matterManager.mattersCodes)
+                for matterCode in self.matterManager.mattersCodes:
                     if matterCode not in wishes.keys():
-                        pass
+                        matter: Matter = self.matterManager.matterById(matterCode)
+                        if matter is not None and insanity >= matter.value:
+                            insanity -= matter.value
+                            break
+                    print('Ñaca Ñaca')
+                wishes[matterCode] = randint(1, 10)
+            self.matterManager.createStudent(studentName, studentId, papi, house, tookSurvey, wishesMatters=wishes)
+            print(n)
+            n -= 1
 
     def createEmptySchedule(self) -> dict:
         schedule = {}
@@ -92,3 +102,8 @@ class Generator:
         strId = str(_id)
         newId = ((len(strId) - 4) * '0') + strId
         return newId
+
+
+if __name__ == "__main__":
+    generator = Generator()
+    generator.run()
